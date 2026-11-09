@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>香港超市比價 HK Price Watch — HKTVmall / PARKnSHOP / Wellcome</title>
+<meta name="description" content="香港超市價錢比較:HKTVmall、百佳、惠康三間價錢一次過睇,邊間最平即刻知。免費、免登入、每日更新。">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #ffffff; color: #111111;
+  font-family: -apple-system, "PingFang HK", "Microsoft JhengHei", sans-serif;
+  font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 24px; margin: 8px 0 4px; }
+.sub { color: #555; margin: 0 0 12px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.stat { background: #f2f2f2; border-radius: 8px; padding: 8px 12px; }
+.stat b { font-size: 20px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.controls input[type="search"], .controls select {
+  font-size: 16px; padding: 10px; border: 1px solid #999; border-radius: 8px;
+  background: #fff; color: #111; }
+.controls input[type="search"] { flex: 1 1 220px; }
+.cats { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 16px; }
+.cats button { font-size: 14px; padding: 6px 12px; border-radius: 20px;
+  border: 1px solid #999; background: #fff; color: #111; cursor: pointer; }
+.cats button.on { background: #111; color: #fff; border-color: #111; }
+h2 { font-size: 18px; margin: 20px 0 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { padding: 9px 8px; border-bottom: 1px solid #ddd; text-align: left;
+  vertical-align: top; }
+th { background: #f2f2f2; }
+td.price { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+th.price { text-align: right; }
+td.cheapest { background: #e6f7e6; font-weight: bold; }
+td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
+.name { font-weight: bold; }
+.meta { color: #555; font-size: 13px; }
+.star { cursor: pointer; font-size: 20px; border: none; background: none;
+  padding: 0 4px; color: #999; }
+.star.on { color: #e6a700; }
+.deal { border: 1px solid #ddd; border-radius: 8px; padding: 10px 12px;
+  margin: 8px 0; }
+.deal b.save { color: #0a7d0a; }
+.note { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+  padding: 10px 12px; font-size: 14px; color: #333; margin: 16px 0; }
+.foot { color: #777; font-size: 13px; margin: 24px 0; }
+@media (max-width: 640px) {
+  table { font-size: 14px; }
+  th, td { padding: 7px 5px; }
+  .hide-sm { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>香港超市比價 <span style="font-size:16px;color:#555">HK Price Watch</span></h1>
+  <p class="sub">HKTVmall、百佳 PARKnSHOP、惠康 Wellcome 三間價錢一次過睇，邊間最平即刻知。免費、免登入、無廣告。</p>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="搜尋:輸入中文或英文，例如 米、雞蛋、milk" aria-label="搜尋">
+    <select id="sort" aria-label="排序">
+      <option value="saving">慳最多先</option>
+      <option value="cheapest">最平價錢先</option>
+      <option value="name">名稱 A–Z</option>
+    </select>
+    <label style="align-self:center"><input type="checkbox" id="watchOnly"> 只睇我的關注</label>
+  </div>
+  <div class="cats" id="cats"></div>
+  <h2>慳最多 Top 10</h2>
+  <div id="deals"></div>
+  <h2>全部價錢 <span class="meta" id="count"></span></h2>
+  <table>
+    <thead><tr>
+      <th style="width:28px"></th><th>貨品</th>
+      <th class="price">HKTVmall</th><th class="price">百佳</th><th class="price">惠康</th>
+      <th class="price hide-sm">每單位</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <div class="note" id="sourceNote"></div>
+  <p class="foot">HK Price Watch — 開放原始碼 (MIT)。價錢只供參考，落單前請到店家核實。
+  數據來源見上。Made for Hong Kong shoppers.</p>
+</div>
+<script src="data/fallback.js"></script>
+<script>
+var DATA = null;
+var WATCH_KEY = "hk-price-watchlist-v1";
+var watch = {};
+try { watch = JSON.parse(localStorage.getItem(WATCH_KEY) || "{}"); } catch (e) { watch = {}; }
+function saveWatch() {
+  try { localStorage.setItem(WATCH_KEY, JSON.stringify(watch)); } catch (e) {}
+}
+function money(n) { return n == null ? "—" : "$" + n.toFixed(2); }
+function esc(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function priceCell(item, store) {
+  var p = item.prices[store];
+  if (!p) return '<td class="price">—</td>';
+  var cls = item.cheapest === store ? ' class="price cheapest"' : ' class="price"';
+  var d = p.record_date ? '<br><span class="meta">' + esc(p.record_date) + '</span>' : "";
+  return "<td" + cls + ">" + money(p.price) + d + "</td>";
+}
+var CAT_NAMES = {
+  "rice-oil": "米油雜貨", "eggs-dairy": "蛋奶", "bread": "麵包",
+  "noodles-instant": "麵食即食", "canned": "罐頭", "sauces": "調味醬料",
+  "drinks": "飲品", "snacks": "零食", "frozen": "急凍",
+  "household": "清潔家居", "personal-care": "個人護理"
+};
+var activeCat = "all";
+function render() {
+  if (!DATA) return;
+  var q = (document.getElementById("q").value || "").toLowerCase();
+  var sort = document.getElementById("sort").value;
+  var watchOnly = document.getElementById("watchOnly").checked;
+  var items = DATA.items.filter(function (it) {
+    if (activeCat !== "all" && it.category !== activeCat) return false;
+    if (watchOnly && !watch[it.id]) return false;
+    if (q) {
+      var hay = (it.name_zh + " " + it.name_en + " " + it.product_name_zh +
+        " " + it.product_name_en + " " + it.brand).toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  });
+  if (sort === "saving") items.sort(function (a, b) { return b.saving_vs_dearest - a.saving_vs_dearest; });
+  else if (sort === "cheapest") items.sort(function (a, b) { return a.prices[a.cheapest].price - b.prices[b.cheapest].price; });
+  else items.sort(function (a, b) { return a.name_en < b.name_en ? -1 : 1; });
+  document.getElementById("count").textContent = "(" + items.length + " 項)";
+  var html = "";
+  items.forEach(function (it) {
+    var unit = it.unit_price ? money(it.unit_price) + " " + esc(it.unit_price_unit) : "—";
+    var save = it.saving_vs_dearest > 0
+      ? '<br><span class="meta">慳 $' + it.saving_vs_dearest.toFixed(2) + " (" + it.saving_pct + '%)</span>' : "";
+    html += "<tr><td><button class=\"star" + (watch[it.id] ? " on" : "") +
+      "\" data-id=\"" + esc(it.id) + "\" title=\"關注\">" + (watch[it.id] ? "★" : "☆") + "</button></td>" +
+      "<td><span class=\"name\">" + esc(it.name_zh) + "</span> " + esc(it.name_en) +
+      "<br><span class=\"meta\">" + esc(it.product_name_zh || it.product_name_en) +
+      (it.pack ? " · " + esc(it.pack) : "") + (it.brand ? " · " + esc(it.brand) : "") + "</span>" + save + "</td>" +
+      priceCell(it, "hktvmall") + priceCell(it, "parknshop") + priceCell(it, "wellcome") +
+      '<td class="price hide-sm">' + unit + "</td></tr>";
+  });
+  document.getElementById("rows").innerHTML = html ||
+    '<tr><td colspan="6">搵唔到符合的貨品，試下改關鍵字。</td></tr>';
+  var deals = DATA.items.slice().sort(function (a, b) { return b.saving_vs_dearest - a.saving_vs_dearest; }).slice(0, 10);
+  var dh = "";
+  deals.forEach(function (it) {
+    var dear = "parknshop", dearPrice = 0;
+    Object.keys(it.prices).forEach(function (s) {
+      if (it.prices[s].price > dearPrice) { dearPrice = it.prices[s].price; dear = s; }
+    });
+    dh += '<div class="deal"><b>' + esc(it.name_zh) + " " + esc(it.name_en) + "</b> — " +
+      "最平 " + money(it.prices[it.cheapest].price) + " (" + esc(DATA.stores[it.cheapest]) + ")" +
+      "，去 " + esc(DATA.stores[dear]) + " 要 " + money(dearPrice) +
+      '，<b class="save">慳 $' + it.saving_vs_dearest.toFixed(2) + " (" + it.saving_pct + '%)</b></div>';
+  });
+  document.getElementById("deals").innerHTML = dh;
+}
+function renderCats() {
+  var cats = ["all"], seen = {};
+  DATA.items.forEach(function (it) {
+    if (!seen[it.category]) { seen[it.category] = 1; cats.push(it.category); }
+  });
+  var h = "";
+  cats.forEach(function (c) {
+    h += '<button data-cat="' + c + '"' + (c === activeCat ? ' class="on"' : "") + ">" +
+      (c === "all" ? "全部" : esc(CAT_NAMES[c] || c)) + "</button>";
+  });
+  document.getElementById("cats").innerHTML = h;
+}
+function renderStats() {
+  var s = DATA.stats;
+  document.getElementById("stats").innerHTML =
+    '<div class="stat"><b>' + s.tracked + '</b> 項貨品</div>' +
+    '<div class="stat"><b>' + s.with_3_stores + '</b> 項有齊三間價</div>' +
+    '<div class="stat"><b>' + s.with_unit_price + '</b> 項有每單位價</div>' +
+    '<div class="stat">更新: <b>' + esc(DATA.date) + "</b></div>";
+  document.getElementById("sourceNote").textContent =
+    "數據來源: " + DATA.source + " 最後更新 " + DATA.generated_at +
+    "。HKTVmall 價為即時價 (含推廣);百佳/惠康價為 HKTVmall 記錄的對手價,附記錄日期,包裝可能有出入,買之前請核實。";
+}
+function bind() {
+  document.getElementById("q").addEventListener("input", render);
+  document.getElementById("sort").addEventListener("change", render);
+  document.getElementById("watchOnly").addEventListener("change", render);
+  document.getElementById("cats").addEventListener("click", function (e) {
+    var b = e.target;
+    if (b.tagName === "BUTTON" && b.getAttribute("data-cat")) {
+      activeCat = b.getAttribute("data-cat"); renderCats(); render();
+    }
+  });
+  document.getElementById("rows").addEventListener("click", function (e) {
+    var b = e.target;
+    if (b.className.indexOf("star") !== -1) {
+      var id = b.getAttribute("data-id");
+      if (watch[id]) delete watch[id]; else watch[id] = 1;
+      saveWatch(); render();
+    }
+  });
+}
+function start(data) {
+  DATA = data;
+  renderStats(); renderCats(); bind(); render();
+}
+if (window.fetch) {
+  fetch("data/prices.json").then(function (r) {
+    if (!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(start).catch(function () {
+    if (window.HK_PRICE_FALLBACK) start(window.HK_PRICE_FALLBACK);
+    else document.getElementById("rows").innerHTML =
+      '<tr><td colspan="6">載入價錢失敗,請檢查網絡後重新整理。</td></tr>';
+  });
+} else if (window.HK_PRICE_FALLBACK) {
+  start(window.HK_PRICE_FALLBACK);
+}
+</script>
+</body>
+</html>
