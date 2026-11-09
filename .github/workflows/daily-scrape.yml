@@ -1,0 +1,33 @@
+name: Daily price scrape
+
+# Refreshes data/prices.json every morning (Hong Kong time) and commits the
+# new snapshot + a dated copy under history/. No secrets needed: the
+# scraper uses HKTVmall's public search API, the same endpoint its own
+# website search uses.
+on:
+  schedule:
+    - cron: "0 1 * * *"   # 09:00 HKT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scraper/requirements.txt
+      - run: python3 scraper/scraper.py
+      - run: node tests/test_frontend.js
+      - run: python3 -m unittest discover -s tests
+      - name: Commit updated prices
+        run: |
+          git config user.name "hk-price-watch bot"
+          git config user.email "bot@hk-price-watch.local"
+          git add data history
+          git diff --cached --quiet || git commit -m "prices: $(date -u +%Y-%m-%d)"
+          git push
