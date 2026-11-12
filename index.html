@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>香港超市比價 HK Price Watch — HKTVmall / PARKnSHOP / Wellcome</title>
-<meta name="description" content="香港超市價錢比較:HKTVmall、百佳、惠康三間價錢一次過睇,邊間最平即刻知。免費、免登入、每日更新。">
+<meta name="description" content="香港超市價錢比較:HKTVmall、百佳、惠康三間價錢一次過睇,邊間最平即刻知。免費、免登入。價錢以快照日期為準,唔係即時價。">
 <style>
+/* Plain CSS only. White background, black text — renders on old browsers
+   (iOS 16 Safari included). No frameworks, no webfonts, no trackers. */
 * { box-sizing: border-box; }
 body { margin: 0; background: #ffffff; color: #111111;
   font-family: -apple-system, "PingFang HK", "Microsoft JhengHei", sans-serif;
@@ -42,6 +44,8 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
 .deal { border: 1px solid #ddd; border-radius: 8px; padding: 10px 12px;
   margin: 8px 0; }
 .deal b.save { color: #0a7d0a; }
+.disc { color: #a00; font-size: 13px; font-weight: bold; }
+.basket { width: 20px; height: 20px; }
 .note { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
   padding: 10px 12px; font-size: 14px; color: #333; margin: 16px 0; }
 .foot { color: #777; font-size: 13px; margin: 24px 0; }
@@ -55,20 +59,30 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
 <body>
 <div class="wrap">
   <h1>香港超市比價 <span style="font-size:16px;color:#555">HK Price Watch</span></h1>
-  <p class="sub">HKTVmall、百佳 PARKnSHOP、惠康 Wellcome 三間價錢一次過睇，邊間最平即刻知。免費、免登入、無廣告。</p>
+  <p class="sub">HKTVmall、百佳 PARKnSHOP、惠康 Wellcome 三間價錢一次過睇，邊間最平即刻知。免費、免登入、無廣告。價錢以快照日期為準，唔係即日價。</p>
+
   <div class="stats" id="stats"></div>
+
   <div class="controls">
     <input type="search" id="q" placeholder="搜尋:輸入中文或英文，例如 米、雞蛋、milk" aria-label="搜尋">
     <select id="sort" aria-label="排序">
       <option value="saving">慳最多先</option>
+      <option value="savingPct">慳最多 % 先</option>
+      <option value="unit">每單位最平先</option>
       <option value="cheapest">最平價錢先</option>
       <option value="name">名稱 A–Z</option>
     </select>
     <label style="align-self:center"><input type="checkbox" id="watchOnly"> 只睇我的關注</label>
+    <label style="align-self:center"><input type="checkbox" id="f3"> 只睇齊三間價</label>
+    <label style="align-self:center"><input type="checkbox" id="fDisc"> 只睇有折扣</label>
   </div>
   <div class="cats" id="cats"></div>
+
+  <div class="note" id="basketBar" style="display:none"></div>
+
   <h2>慳最多 Top 10</h2>
   <div id="deals"></div>
+
   <h2>全部價錢 <span class="meta" id="count"></span></h2>
   <table>
     <thead><tr>
@@ -78,20 +92,143 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
     </tr></thead>
     <tbody id="rows"></tbody>
   </table>
+
   <div class="note" id="sourceNote"></div>
   <p class="foot">HK Price Watch — 開放原始碼 (MIT)。價錢只供參考，落單前請到店家核實。
   數據來源見上。Made for Hong Kong shoppers.</p>
 </div>
+
 <script src="data/fallback.js"></script>
 <script>
+/* ES5 only — must run on iOS 16 Safari. No fetch polyfills needed:
+   fetch exists on iOS 16; if it fails (file://), the embedded fallback
+   snapshot in data/fallback.js is used instead. */
 var DATA = null;
 var WATCH_KEY = "hk-price-watchlist-v1";
 var watch = {};
 try { watch = JSON.parse(localStorage.getItem(WATCH_KEY) || "{}"); } catch (e) { watch = {}; }
+var BASKET_KEY = "hk-price-basket-v1";
+var basket = {};
+try { basket = JSON.parse(localStorage.getItem(BASKET_KEY) || "{}"); } catch (e) { basket = {}; }
+
 function saveWatch() {
   try { localStorage.setItem(WATCH_KEY, JSON.stringify(watch)); } catch (e) {}
 }
+function saveBasket() {
+  try { localStorage.setItem(BASKET_KEY, JSON.stringify(basket)); } catch (e) {}
+}
+/* Discount % off the HKTVmall original price (data field original_price).
+   Returns null when there is no original price or no discount. Pure. */
+function discountPct(it) {
+  if (!it || !it.prices) return null;
+  var orig = it.original_price, cur = it.prices.hktvmall && it.prices.hktvmall.price;
+  if (!orig || !cur || orig <= cur) return null;
+  return Math.round((orig - cur) / orig * 1000) / 10;
+}
+function cheapestPrice(it) {
+  if (!it || !it.prices) return null;
+  var p = it.cheapest && it.prices[it.cheapest];
+  if (p) return p.price;
+  var lo = null, k;
+  for (k in it.prices) if (it.prices[k] && (lo == null || it.prices[k].price < lo)) lo = it.prices[k].price;
+  return lo;
+}
+/* Sort a copy of the items. Pure. Missing fields sort last, never crash. */
+function sortItems(items, sort) {
+  var arr = items.slice();
+  function numField(it, f, missing) { var v = it[f]; return (v == null || isNaN(v)) ? missing : v; }
+  if (sort === "saving") arr.sort(function (a, b) { return numField(b, "saving_vs_dearest", -1e9) - numField(a, "saving_vs_dearest", -1e9); });
+  else if (sort === "savingPct") arr.sort(function (a, b) { return numField(b, "saving_pct", -1e9) - numField(a, "saving_pct", -1e9); });
+  else if (sort === "unit") arr.sort(function (a, b) {
+    var ua = a.unit_price == null ? 1e9 : a.unit_price;
+    var ub = b.unit_price == null ? 1e9 : b.unit_price;
+    return ua - ub;
+  });
+  else if (sort === "cheapest") arr.sort(function (a, b) {
+    var pa = cheapestPrice(a), pb = cheapestPrice(b);
+    return (pa == null ? 1e9 : pa) - (pb == null ? 1e9 : pb);
+  });
+  else arr.sort(function (a, b) { return a.name_en < b.name_en ? -1 : 1; });
+  return arr;
+}
+/* Basket totals from real prices: cheapest-per-item vs dearest-per-item,
+   plus what the same basket costs at each store. Pure. */
+function basketTotals(items, ids) {
+  var t = { count: 0, cheapestTotal: 0, dearestTotal: 0, saving: 0, perStore: {}, perStoreCount: {} };
+  var stores = ["hktvmall", "parknshop", "wellcome"], si;
+  for (si = 0; si < stores.length; si++) { t.perStore[stores[si]] = 0; t.perStoreCount[stores[si]] = 0; }
+  items.forEach(function (it) {
+    if (!ids[it.id]) return;
+    var lo = null, hi = 0, s;
+    for (si = 0; si < stores.length; si++) {
+      s = stores[si];
+      if (it.prices[s]) {
+        if (lo == null || it.prices[s].price < lo) lo = it.prices[s].price;
+        if (it.prices[s].price > hi) hi = it.prices[s].price;
+        t.perStore[s] += it.prices[s].price;
+        t.perStoreCount[s]++;
+      }
+    }
+    if (lo == null) return;
+    t.count++;
+    t.cheapestTotal += lo;
+    t.dearestTotal += hi;
+  });
+  t.saving = t.dearestTotal - t.cheapestTotal;
+  return t;
+}
+/* Which single store is cheapest for this whole basket (among stores that
+   stock at least one basket item). Returns a store key or null. Pure. */
+function cheapestBasketStore(t) {
+  var best = null, bestTotal = null, stores = ["hktvmall", "parknshop", "wellcome"], i, s;
+  for (i = 0; i < stores.length; i++) {
+    s = stores[i];
+    if (t.perStoreCount[s] > 0 && (bestTotal == null || t.perStore[s] < bestTotal)) {
+      bestTotal = t.perStore[s]; best = s;
+    }
+  }
+  return best;
+}
+/* How many items each store is cheapest on. Pure. */
+function cheapestStoreTally(items) {
+  var t = { hktvmall: 0, parknshop: 0, wellcome: 0 };
+  items.forEach(function (it) { if (t[it.cheapest] != null) t[it.cheapest]++; });
+  return t;
+}
 function money(n) { return n == null ? "—" : "$" + n.toFixed(2); }
+function pad2(n) { return n < 10 ? "0" + n : String(n); }
+/* Days between the snapshot date and today (both "YYYY-MM-DD"). Pure.
+   Returns null when either date is unparsable or impossible (e.g. 2026-02-30). */
+function snapshotAgeDays(dateStr, todayStr) {
+  function parts(s) {
+    var p = String(s || "").split("-");
+    if (p.length !== 3) return null;
+    var y = parseInt(p[0], 10), m = parseInt(p[1], 10), d = parseInt(p[2], 10);
+    var dt = new Date(y, m - 1, d);
+    if (isNaN(dt.getTime()) || dt.getFullYear() !== y || dt.getMonth() !== m - 1 || dt.getDate() !== d) return null;
+    return dt;
+  }
+  var a = parts(dateStr), b = parts(todayStr);
+  if (!a || !b) return null;
+  return Math.round((b.getTime() - a.getTime()) / 86400000);
+}
+/* One honest line about how fresh the snapshot is. Pure. */
+function snapshotNote(data, todayStr) {
+  var age = snapshotAgeDays(data.date, todayStr);
+  if (age == null) return "價錢係 " + data.date + " 嘅快照,唔係即日價錢。";
+  if (age <= 0) return "價錢係今日 (" + data.date + ") 嘅快照。";
+  if (age === 1) return "⚠ 價錢係尋日 (" + data.date + ") 嘅快照,唔係今日價錢。";
+  return "⚠ 價錢係 " + age + " 日前 (" + data.date + ") 嘅快照,唔係今日價錢,買之前請去店家核實。";
+}
+/* Store key with the highest price (the "dearest" store for a deal line).
+   Returns null when there are no prices. Pure. */
+function dearestStore(prices) {
+  var best = null, bestPrice = null, s;
+  for (s in prices || {}) {
+    if (prices[s] && (bestPrice == null || prices[s].price > bestPrice)) { bestPrice = prices[s].price; best = s; }
+  }
+  return best;
+}
 function esc(s) {
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
     .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -103,6 +240,7 @@ function priceCell(item, store) {
   var d = p.record_date ? '<br><span class="meta">' + esc(p.record_date) + '</span>' : "";
   return "<td" + cls + ">" + money(p.price) + d + "</td>";
 }
+
 var CAT_NAMES = {
   "rice-oil": "米油雜貨", "eggs-dairy": "蛋奶", "bread": "麵包",
   "noodles-instant": "麵食即食", "canned": "罐頭", "sauces": "調味醬料",
@@ -110,54 +248,96 @@ var CAT_NAMES = {
   "household": "清潔家居", "personal-care": "個人護理"
 };
 var activeCat = "all";
+
 function render() {
   if (!DATA) return;
   var q = (document.getElementById("q").value || "").toLowerCase();
   var sort = document.getElementById("sort").value;
   var watchOnly = document.getElementById("watchOnly").checked;
+  var f3 = document.getElementById("f3"), fDisc = document.getElementById("fDisc");
+  var only3 = !!(f3 && f3.checked), onlyDisc = !!(fDisc && fDisc.checked);
   var items = DATA.items.filter(function (it) {
     if (activeCat !== "all" && it.category !== activeCat) return false;
     if (watchOnly && !watch[it.id]) return false;
+    if (only3 && !it.has_3_stores) return false;
+    if (onlyDisc && discountPct(it) == null) return false;
     if (q) {
-      var hay = (it.name_zh + " " + it.name_en + " " + it.product_name_zh +
-        " " + it.product_name_en + " " + it.brand).toLowerCase();
+      var hay = ((it.name_zh || "") + " " + (it.name_en || "") + " " + (it.product_name_zh || "") +
+        " " + (it.product_name_en || "") + " " + (it.brand || "")).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
     return true;
   });
-  if (sort === "saving") items.sort(function (a, b) { return b.saving_vs_dearest - a.saving_vs_dearest; });
-  else if (sort === "cheapest") items.sort(function (a, b) { return a.prices[a.cheapest].price - b.prices[b.cheapest].price; });
-  else items.sort(function (a, b) { return a.name_en < b.name_en ? -1 : 1; });
+  items = sortItems(items, sort);
+
   document.getElementById("count").textContent = "(" + items.length + " 項)";
+
   var html = "";
   items.forEach(function (it) {
     var unit = it.unit_price ? money(it.unit_price) + " " + esc(it.unit_price_unit) : "—";
     var save = it.saving_vs_dearest > 0
-      ? '<br><span class="meta">慳 $' + it.saving_vs_dearest.toFixed(2) + " (" + it.saving_pct + '%)</span>' : "";
+      ? '<br><span class="meta">慳 $' + it.saving_vs_dearest.toFixed(2) + " (" + (it.saving_pct || 0) + '%)</span>' : "";
+    var disc = discountPct(it);
+    var discHtml = disc != null
+      ? '<br><span class="disc">HKTVmall 減 ' + disc + "% (原價 $" + it.original_price.toFixed(2) + ")</span>" : "";
     html += "<tr><td><button class=\"star" + (watch[it.id] ? " on" : "") +
-      "\" data-id=\"" + esc(it.id) + "\" title=\"關注\">" + (watch[it.id] ? "★" : "☆") + "</button></td>" +
+      "\" data-id=\"" + esc(it.id) + "\" title=\"關注\">" + (watch[it.id] ? "★" : "☆") + "</button>" +
+      '<br><input type="checkbox" class="basket" data-id="' + esc(it.id) + '" title="加入購物籃"' +
+      (basket[it.id] ? " checked" : "") + "></td>" +
       "<td><span class=\"name\">" + esc(it.name_zh) + "</span> " + esc(it.name_en) +
       "<br><span class=\"meta\">" + esc(it.product_name_zh || it.product_name_en) +
-      (it.pack ? " · " + esc(it.pack) : "") + (it.brand ? " · " + esc(it.brand) : "") + "</span>" + save + "</td>" +
+      (it.pack ? " · " + esc(it.pack) : "") + (it.brand ? " · " + esc(it.brand) : "") + "</span>" + save + discHtml + "</td>" +
       priceCell(it, "hktvmall") + priceCell(it, "parknshop") + priceCell(it, "wellcome") +
       '<td class="price hide-sm">' + unit + "</td></tr>";
   });
   document.getElementById("rows").innerHTML = html ||
     '<tr><td colspan="6">搵唔到符合的貨品，試下改關鍵字。</td></tr>';
-  var deals = DATA.items.slice().sort(function (a, b) { return b.saving_vs_dearest - a.saving_vs_dearest; }).slice(0, 10);
+
+  var deals = DATA.items.slice().sort(function (a, b) {
+    var sa = (a.saving_vs_dearest == null ? 0 : a.saving_vs_dearest);
+    var sb = (b.saving_vs_dearest == null ? 0 : b.saving_vs_dearest);
+    return sb - sa;
+  }).slice(0, 10);
   var dh = "";
   deals.forEach(function (it) {
-    var dear = "parknshop", dearPrice = 0;
-    Object.keys(it.prices).forEach(function (s) {
-      if (it.prices[s].price > dearPrice) { dearPrice = it.prices[s].price; dear = s; }
-    });
+    var cheapP = cheapestPrice(it);
+    if (cheapP == null) return;
+    /* The dearest store must come from the real prices: the old code
+       defaulted to parknshop at $0, so a one-store item would have shown
+       "去百佳要 $0.00". A deal with no dearer store is not a deal. */
+    var dear = dearestStore(it.prices);
+    if (dear == null || dear === it.cheapest) return;
+    var dearPrice = it.prices[dear].price;
     dh += '<div class="deal"><b>' + esc(it.name_zh) + " " + esc(it.name_en) + "</b> — " +
-      "最平 " + money(it.prices[it.cheapest].price) + " (" + esc(DATA.stores[it.cheapest]) + ")" +
+      "最平 " + money(cheapP) + " (" + esc(DATA.stores[it.cheapest] || it.cheapest || "") + ")" +
       "，去 " + esc(DATA.stores[dear]) + " 要 " + money(dearPrice) +
-      '，<b class="save">慳 $' + it.saving_vs_dearest.toFixed(2) + " (" + it.saving_pct + '%)</b></div>';
+      '，<b class="save">慳 $' + (it.saving_vs_dearest || 0).toFixed(2) + " (" + (it.saving_pct || 0) + '%)</b></div>';
   });
   document.getElementById("deals").innerHTML = dh;
+  renderBasket();
 }
+
+function renderBasket() {
+  var bar = document.getElementById("basketBar");
+  if (!bar) return;
+  var t = basketTotals(DATA.items, basket);
+  if (!t.count) { bar.style.display = "none"; bar.innerHTML = ""; return; }
+  bar.style.display = "block";
+  var bestStore = cheapestBasketStore(t);
+  var bestTxt = bestStore
+    ? '去邊間買晒成籃最平: <b>' + esc(DATA.stores[bestStore]) + " $" + t.perStore[bestStore].toFixed(2) + "</b>。"
+    : "";
+  bar.innerHTML = "購物籃 Basket: " + t.count + " 項 — 全部買最平共 <b>$" + t.cheapestTotal.toFixed(2) +
+    "</b>,全部買最貴共 $" + t.dearestTotal.toFixed(2) +
+    ', <b style="color:#0a7d0a">慳 $' + t.saving.toFixed(2) + "</b>。" + bestTxt +
+    "同一籃喺各店總數: HKTVmall $" + t.perStore.hktvmall.toFixed(2) + " (" + t.perStoreCount.hktvmall +
+    " 項) · 百佳 $" + t.perStore.parknshop.toFixed(2) + " (" + t.perStoreCount.parknshop +
+    " 項) · 惠康 $" + t.perStore.wellcome.toFixed(2) + " (" + t.perStoreCount.wellcome +
+    ' 項) <button id="clearBasket" style="margin-left:8px">清空 Clear</button>';
+  var cb = document.getElementById("clearBasket");
+  if (cb) cb.addEventListener("click", function () { basket = {}; saveBasket(); render(); });
+}
+
 function renderCats() {
   var cats = ["all"], seen = {};
   DATA.items.forEach(function (it) {
@@ -170,21 +350,38 @@ function renderCats() {
   });
   document.getElementById("cats").innerHTML = h;
 }
+
 function renderStats() {
-  var s = DATA.stats;
+  /* Fall back to computing stats from the items if stats block is missing. */
+  var s = DATA.stats || { tracked: DATA.items.length,
+    with_3_stores: DATA.items.filter(function (i) { return i.has_3_stores; }).length,
+    with_unit_price: DATA.items.filter(function (i) { return i.unit_price != null; }).length };
+  var tally = cheapestStoreTally(DATA.items);
+  var discCount = 0, di;
+  for (di = 0; di < DATA.items.length; di++) if (discountPct(DATA.items[di]) != null) discCount++;
   document.getElementById("stats").innerHTML =
     '<div class="stat"><b>' + s.tracked + '</b> 項貨品</div>' +
     '<div class="stat"><b>' + s.with_3_stores + '</b> 項有齊三間價</div>' +
     '<div class="stat"><b>' + s.with_unit_price + '</b> 項有每單位價</div>' +
+    '<div class="stat"><b>' + discCount + '</b> 項有折扣</div>' +
+    '<div class="stat">最平次數: HKTVmall <b>' + tally.hktvmall + '</b> · 百佳 <b>' +
+    tally.parknshop + '</b> · 惠康 <b>' + tally.wellcome + '</b></div>' +
     '<div class="stat">更新: <b>' + esc(DATA.date) + "</b></div>";
+  var t = new Date();
+  var todayStr = t.getFullYear() + "-" + pad2(t.getMonth() + 1) + "-" + pad2(t.getDate());
   document.getElementById("sourceNote").textContent =
-    "數據來源: " + DATA.source + " 最後更新 " + DATA.generated_at +
-    "。HKTVmall 價為即時價 (含推廣);百佳/惠康價為 HKTVmall 記錄的對手價,附記錄日期,包裝可能有出入,買之前請核實。";
+    snapshotNote(DATA, todayStr) + " 數據來源: " + DATA.source + " 最後更新 " + DATA.generated_at +
+    "。HKTVmall 價為快照當日價 (含推廣);百佳/惠康價為 HKTVmall 記錄的對手價,附記錄日期,包裝可能有出入,買之前請核實。";
 }
+
 function bind() {
   document.getElementById("q").addEventListener("input", render);
   document.getElementById("sort").addEventListener("change", render);
   document.getElementById("watchOnly").addEventListener("change", render);
+  var f3 = document.getElementById("f3");
+  if (f3) f3.addEventListener("change", render);
+  var fDisc = document.getElementById("fDisc");
+  if (fDisc) fDisc.addEventListener("change", render);
   document.getElementById("cats").addEventListener("click", function (e) {
     var b = e.target;
     if (b.tagName === "BUTTON" && b.getAttribute("data-cat")) {
@@ -197,21 +394,32 @@ function bind() {
       var id = b.getAttribute("data-id");
       if (watch[id]) delete watch[id]; else watch[id] = 1;
       saveWatch(); render();
+    } else if (b.className.indexOf("basket") !== -1) {
+      var bid = b.getAttribute("data-id");
+      if (b.checked) basket[bid] = 1; else delete basket[bid];
+      saveBasket(); renderBasket();
     }
   });
 }
+
 function start(data) {
   DATA = data;
   renderStats(); renderCats(); bind(); render();
 }
+
+/* Prefer data/prices.json; fall back to the snapshot baked into fallback.js. */
 if (window.fetch) {
   fetch("data/prices.json").then(function (r) {
     if (!r.ok) throw new Error("http " + r.status);
     return r.json();
   }).then(start).catch(function () {
     if (window.HK_PRICE_FALLBACK) start(window.HK_PRICE_FALLBACK);
-    else document.getElementById("rows").innerHTML =
-      '<tr><td colspan="6">載入價錢失敗,請檢查網絡後重新整理。</td></tr>';
+    else {
+      document.getElementById("rows").innerHTML =
+        '<tr><td colspan="6">載入價錢失敗,請檢查網絡後重新整理。</td></tr>';
+      var sn = document.getElementById("sourceNote");
+      if (sn) sn.textContent = "載入價錢失敗:未能讀取 data/prices.json,亦無內置備份。請檢查網絡後重新整理。";
+    }
   });
 } else if (window.HK_PRICE_FALLBACK) {
   start(window.HK_PRICE_FALLBACK);
