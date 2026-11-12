@@ -83,7 +83,7 @@ try {
   check("deals rendered (top 10)", (els.deals.innerHTML.match(/class="deal"/g) || []).length === 10);
   check("source note rendered", els.sourceNote.textContent.indexOf("HKTVmall") !== -1);
   check("source note states snapshot date + that it is not today's price",
-    els.sourceNote.textContent.indexOf("2026-11-09") !== -1 &&
+    els.sourceNote.textContent.indexOf(snap.date) !== -1 &&
     els.sourceNote.textContent.indexOf("快照") !== -1 &&
     els.sourceNote.textContent.indexOf("即時價") === -1);
   check("a real product name appears", rowsHtml.indexOf("香米") !== -1);
@@ -133,8 +133,11 @@ try {
   check("dearestStore empty returns null", dearestStore({}) === null);
   check("dearestStore null returns null", dearestStore(null) === null);
   var rice = snap.items[0];
-  check("discountPct rice 99.9 -> 72.8 = 27.1%",
-    discountPct(rice) === 27.1, "got " + discountPct(rice));
+  var ricePct = rice.original_price
+    ? Math.round(1000 * (rice.original_price - rice.prices.hktvmall.price) / rice.original_price) / 10
+    : null;
+  check("discountPct rice matches snapshot prices",
+    discountPct(rice) === ricePct, "got " + discountPct(rice) + ", expected " + ricePct);
   check("discountPct null when no original price",
     discountPct({ original_price: null, prices: { hktvmall: { price: 10 } } }) === null);
   check("discountPct null when not discounted",
@@ -147,9 +150,11 @@ try {
   check("sortItems does not mutate the snapshot",
     snap.items[0].id === "rice-jasmine-5kg");
   var bt = basketTotals(snap.items, { "rice-jasmine-5kg": 1 });
-  check("basketTotals one item: cheapest 72.80, dearest 72.90",
-    Math.abs(bt.cheapestTotal - 72.8) < 0.001 && Math.abs(bt.dearestTotal - 72.9) < 0.001 &&
-    bt.count === 1 && Math.abs(bt.saving - 0.1) < 0.001);
+  var riceCheapest = Math.min.apply(null, Object.keys(rice.prices).map(function (k) { return rice.prices[k].price; }));
+  var riceDearest = Math.max.apply(null, Object.keys(rice.prices).map(function (k) { return rice.prices[k].price; }));
+  check("basketTotals one item matches snapshot rice prices",
+    Math.abs(bt.cheapestTotal - riceCheapest) < 0.001 && Math.abs(bt.dearestTotal - riceDearest) < 0.001 &&
+    bt.count === 1 && Math.abs(bt.saving - (riceDearest - riceCheapest)) < 0.001);
   check("basketTotals per-store sums include the item",
     Math.abs(bt.perStore.hktvmall - 72.8) < 0.001 && bt.perStoreCount.wellcome === 1);
   check("basketTotals empty basket = 0",
