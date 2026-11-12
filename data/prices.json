@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T13:59:54+08:00",
-  "date": "2026-11-09",
+  "generated_at": "2026-11-12T01:52:37+08:00",
+  "date": "2026-11-12",
   "source": "HKTVmall public search API (Algolia) — prices as listed on hktvmall.com; PARKnSHOP / Wellcome prices are HKTVmall's own recorded competitor prices (kaPriceList) with record dates, not scraped from those stores directly.",
   "currency": "HKD",
   "stores": {
@@ -27,11 +27,11 @@
         },
         "parknshop": {
           "price": 72.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 72.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -85,11 +85,11 @@
         },
         "parknshop": {
           "price": 40.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 35.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -104,24 +104,24 @@
       "id": "oil-vegetable-1l",
       "name_zh": "植物食油 1公升",
       "name_en": "Vegetable Cooking Oil 1L",
-      "product_name_zh": "天竺葵洗衣液 1L 補充裝 (綠)  [平行進口] (新舊包裝 隨機發貨)",
-      "product_name_en": "Baby Pelargonium Laundry Soap Refill 1L [Parallel import] Packaging Random delivery",
+      "product_name_zh": "奧尼牌葡萄籽油 1公升 (玻璃瓶裝)",
+      "product_name_en": "Olitalia Grapeseed Oil 1Lt (glass bottle)",
       "category": "rice-oil",
-      "brand": "arau",
-      "store": "Hey iLady",
-      "pack": "1L",
-      "unit_price": 35.5,
-      "unit_price_unit": "per L",
+      "brand": "OLITALIA",
+      "store": "OLITALIA",
+      "pack": "",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 35.5
+          "price": 80.0
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
-      "original_price": 82.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Hey-iLady/s/H6092001/Mother-%26-Baby/Mother-%26-Baby/Baby-Laundry-%26-Cleansing/Baby-Laundry-Soap-%26-Softener/Baby-Laundry-Detergent/Baby-Pelargonium-Laundry-Soap-Refill-1L-Parallel-import-Packaging-Random-delivery/p/H6092001_S_4973512308123",
+      "original_price": null,
+      "url": "https://www.hktvmall.com/hktv/en/main/OLITALIA/s/B0424002/Supermarket/Supermarket/Rice-%26-Cooking-Oil/Cooking-Oil/Grape-Seed-Oil/Olitalia-Grapeseed-Oil-1Lt-glass-bottle/p/B0424002_S_8007150000326",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -129,32 +129,32 @@
       "id": "oil-olive",
       "name_zh": "橄欖油",
       "name_en": "Olive Oil",
-      "product_name_zh": "特純橄欖油500亳升#冷壓初榨 #意粉 #沙律 #醃肉 #輕炒 #有益心臟 #抗炎 #意大利生產 #煙點達190度",
-      "product_name_en": "Extra Virgin Olive Oil 500mL",
+      "product_name_zh": "清淡橄欖油500亳升 #高溫 #煎炸 #烤焗 #煎扒 #代替牛油 #有益心臟 #意大利生產 #煙點達220度",
+      "product_name_en": "MILD & LIGHT OLIVE OIL 500ML",
       "category": "rice-oil",
       "brand": "Filippo Berio",
       "store": "Wing Sang Cheong Limited",
-      "pack": "500mL",
-      "unit_price": 179.6,
+      "pack": "500ml",
+      "unit_price": 151.6,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 89.8
+          "price": 75.8
         },
         "parknshop": {
-          "price": 89.9,
-          "record_date": "09/11/2026"
+          "price": 79.9,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 92.9,
-          "record_date": "09/11/2026"
+          "price": 75.9,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 3.1,
-      "saving_pct": 3.3,
+      "saving_vs_dearest": 4.1,
+      "saving_pct": 5.1,
       "original_price": 139.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/%E6%A6%AE%E7%94%9F%E7%A5%A5%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/s/H1096002/Supermarket/Supermarket/Rice-%26-Cooking-Oil/Cooking-Oil/Olive-Oil/Extra-Virgin-Olive-Oil-500mL/p/H0888001_S_10138784",
+      "url": "https://www.hktvmall.com/hktv/en/main/%E6%A6%AE%E7%94%9F%E7%A5%A5%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/s/H1096002/Supermarket/Supermarket/Rice-%26-Cooking-Oil/Cooking-Oil/Olive-Oil/MILD-LIGHT-OLIVE-OIL-500ML/p/H0888001_S_10145831",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -176,7 +176,7 @@
         },
         "parknshop": {
           "price": 129.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -205,11 +205,11 @@
         },
         "parknshop": {
           "price": 37.5,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 35.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -288,11 +288,11 @@
         },
         "parknshop": {
           "price": 38.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 37.8,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -346,7 +346,7 @@
         },
         "parknshop": {
           "price": 17.8,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -375,11 +375,11 @@
         },
         "parknshop": {
           "price": 29.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 29.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -394,24 +394,24 @@
       "id": "eggs-10",
       "name_zh": "雞蛋 10隻",
       "name_en": "Fresh Eggs 10pcs",
-      "product_name_zh": "日本青森坂本無激素雞蛋 (10隻) x 1 盒 #無添加 #日本雞蛋",
-      "product_name_en": "Japan Hormone-Free Fresh Eggs (10pcs) x 1 box",
+      "product_name_zh": "新鮮大啡蛋（10隻)",
+      "product_name_en": "Fresh Brown Eggs (10pcs )",
       "category": "eggs-dairy",
-      "brand": "Aplex",
-      "store": "Aplex",
-      "pack": "1pack (10pcs)",
-      "unit_price": 24.8,
-      "unit_price_unit": "per pack",
+      "brand": "Unionsum",
+      "store": "Unionsum",
+      "pack": "",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 24.8
+          "price": 23.0
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
-      "original_price": 35.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Aplex/s/H7229001/Supermarket/Supermarket/Eggs/Eggs/Japan/Japan-HormoneFree-Fresh-Eggs-10pcs-x-1-box/p/H7229001_S_JPFS00033",
+      "original_price": 45.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Unionsum/s/S1307001/Supermarket/Supermarket/Eggs/Eggs/China/Fresh-Brown-Eggs-10pcs-/p/S1307001_S_EG007",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -444,33 +444,25 @@
       "id": "milk-fresh-1l",
       "name_zh": "鮮奶 1公升",
       "name_en": "Fresh Milk 1L",
-      "product_name_zh": "全脂牛奶(保鮮裝) 1公升",
-      "product_name_en": "UHT Free Range Full Cream Milk 1L",
+      "product_name_zh": "澳洲 哈維 無乳糖全脂牛奶 Harvey Fresh Lactose Free Full Cream Milk (保鮮裝) - 原箱 1公升 [到期日: 2027年01月21日]",
+      "product_name_en": "Harvey Fresh Lactose Free Full Cream Milk (Fresh Pack) - Full Case 1L (Expiry Date: 21,Jan,2027)",
       "category": "eggs-dairy",
       "brand": "HARVEY FRESH",
-      "store": "THE MARKET",
-      "pack": "1 L",
-      "unit_price": 23.4,
+      "store": "Tenth Online Store",
+      "pack": "12x1L",
+      "unit_price": 23.9,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 23.4
-        },
-        "parknshop": {
-          "price": 23.9,
-          "record_date": "09/11/2026"
-        },
-        "wellcome": {
-          "price": 23.5,
-          "record_date": "09/11/2026"
+          "price": 286.8
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.5,
-      "saving_pct": 2.1,
-      "original_price": 26.18,
-      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/UHT-Free-Range-Full-Cream-Milk-1L-/p/H0888001_S_10147786",
-      "has_3_stores": true,
+      "saving_vs_dearest": 0.0,
+      "saving_pct": 0.0,
+      "original_price": 388.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Tenth-Online-Store/s/H1272001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/Harvey-Fresh-Lactose-Free-Full-Cream-Milk-Fresh-Pack-Full-Case-1L-Expiry-Date-21Jan2027-/p/H8260001_S_50001144",
+      "has_3_stores": false,
       "in_stock": true
     },
     {
@@ -491,7 +483,7 @@
         },
         "parknshop": {
           "price": 23.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -512,24 +504,24 @@
       "brand": "Vitasoy",
       "store": "VITASOY / VITA",
       "pack": "250ml x 6",
-      "unit_price": 15.27,
+      "unit_price": 13.43,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 22.9
+          "price": 20.15
         },
         "parknshop": {
           "price": 23.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 23.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.4,
+      "saving_vs_dearest": 2.85,
+      "saving_pct": 12.4,
       "original_price": 30.0,
       "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/Vitasoy-Soya-Bean-Milk-250ml-x-6Packs-Packing-Randomly-Delivery/p/H0888001_S_10007706",
       "has_3_stores": true,
@@ -539,29 +531,33 @@
       "id": "milk-oat",
       "name_zh": "燕麥奶",
       "name_en": "Oat Milk",
-      "product_name_zh": "Barista Grade Oat MIlk (1L) 咖啡師燕麥奶 【Best Before：03/2027】 無添加糖 咖啡專用植物奶 | 適合拉花 Vegan 高鈣 無乳糖 早餐飲品",
-      "product_name_en": "Barista Grade Oat MIlk (1L)【Best Before：03/2027】New Zealand oats and no added sugar",
+      "product_name_zh": "OATSIDE 職人燕麥植物奶 1公升｜澳洲頂級燕麥｜早餐奶｜植物蛋白飲料｜0乳糖 平行進口",
+      "product_name_en": "OATSIDE Barista Oat Milk 1L  | Australian Oats | Lactose & Cholesterol Free Parallel Import",
       "category": "eggs-dairy",
-      "brand": "Boring",
-      "store": "O Buy",
-      "pack": "",
-      "unit_price": null,
-      "unit_price_unit": null,
+      "brand": "OATSIDE",
+      "store": "EURO-ASIA STORE",
+      "pack": "1 L",
+      "unit_price": 23.8,
+      "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 37.6
+          "price": 23.8
         },
         "parknshop": {
-          "price": 39.0,
-          "record_date": "09/11/2026"
+          "price": 36.0,
+          "record_date": "11/11/2026"
+        },
+        "wellcome": {
+          "price": 25.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 1.4,
-      "saving_pct": 3.6,
-      "original_price": 59.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/O-Buy/s/H8970001/Supermarket/Supermarket/Breakfast-%26-Jam/Oats-%26-Cereals/Oatmeal-congee-%26-Oat-soymilk/Barista-Grade-Oat-MIlk-1LBest-Before032027New-Zealand-oats-and-no-added-sugar/p/H8970001_S_9421903594198",
-      "has_3_stores": false,
+      "saving_vs_dearest": 12.2,
+      "saving_pct": 33.9,
+      "original_price": 60.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/EURO-ASIA-STORE/s/B1007001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/OATSIDE-Barista-Oat-Milk-1L-Australian-Oats-Lactose-Cholesterol-Free-Parallel-Import/p/B1007001_S_150079DA",
+      "has_3_stores": true,
       "in_stock": true
     },
     {
@@ -582,7 +578,7 @@
         },
         "parknshop": {
           "price": 55.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -622,32 +618,32 @@
       "id": "yogurt",
       "name_zh": "乳酪",
       "name_en": "Yogurt",
-      "product_name_zh": "原味乳酪 (4杯裝) (冷凍0-4°C)",
-      "product_name_en": "Sweetened Yogurt (4pcs)(Chilled)",
+      "product_name_zh": "純‧凝酪  (4杯裝) (冷凍)【最佳食用期限不少於3天】",
+      "product_name_en": "Spoona Yogurt (Chill)【Not less than 3 days for best consumption】",
       "category": "eggs-dairy",
-      "brand": "MÖVENPICK",
-      "store": "THE FOODIES",
-      "pack": "100g x 4",
-      "unit_price": 89.75,
-      "unit_price_unit": "per kg",
+      "brand": "Trappist Dairy",
+      "store": "Trappist Dairy",
+      "pack": "",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 35.9
+          "price": 29.9
         },
         "parknshop": {
-          "price": 38.0,
-          "record_date": "09/11/2026"
+          "price": 30.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 36.0,
-          "record_date": "09/11/2026"
+          "price": 30.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 2.1,
-      "saving_pct": 5.5,
-      "original_price": 62.4,
-      "url": "https://www.hktvmall.com/hktv/en/main/THE-FOODIES/s/H1111001/Supermarket/Supermarket/Chilled-Frozen-Food/Dairy-Products/Yoghurt/Sweetened-Yogurt-4pcsChilled/p/H0888001_S_10145168C",
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.3,
+      "original_price": 44.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Trappist-Dairy/s/H1219001/Supermarket/Supermarket/Chilled-Frozen-Food/Dairy-Products/Yoghurt/Spoona-Yogurt-ChillNot-less-than-3-days-for-best-consumption/p/H1115001_S_10140143C",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -711,7 +707,7 @@
       "brand": "europastry",
       "store": "Savory",
       "pack": "3pcs, 285g /pack",
-      "unit_price": 1.81,
+      "unit_price": 171.93,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
@@ -744,7 +740,7 @@
         },
         "parknshop": {
           "price": 25.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -773,7 +769,7 @@
         },
         "parknshop": {
           "price": 26.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -801,17 +797,17 @@
           "price": 107.9
         },
         "parknshop": {
-          "price": 125.0,
-          "record_date": "09/11/2026"
+          "price": 108.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 108.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 17.1,
-      "saving_pct": 13.7,
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.1,
       "original_price": 225.0,
       "url": "https://www.hktvmall.com/hktv/en/main/Pure-Source/s/H1079001/Supermarket/Supermarket/Noodles-%26-Pasta/Japanese-style-Noodles-%26-Udons/Ramen/Hakata-Thin-Noodle-Straight/p/H0888001_S_10145000",
       "has_3_stores": true,
@@ -835,11 +831,11 @@
         },
         "parknshop": {
           "price": 28.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 35.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -868,7 +864,7 @@
         },
         "parknshop": {
           "price": 14.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -901,7 +897,7 @@
         },
         "wellcome": {
           "price": 10.5,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -942,31 +938,31 @@
       "name_zh": "午餐肉罐頭",
       "name_en": "Luncheon Meat",
       "product_name_zh": "[西班牙直送] 高雲伊比利亞黑毛豬午餐肉",
-      "product_name_en": "Spain Iberico Luncheon Meat",
+      "product_name_en": "Spain Iberico Luncheon Meat [Parallel Import Product]",
       "category": "canned",
       "brand": "COREN",
       "store": "UK Store by HKTVmall",
-      "pack": "200g x 4",
-      "unit_price": 99.88,
+      "pack": "200g",
+      "unit_price": 149.5,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 79.9
+          "price": 29.9
         },
         "parknshop": {
-          "price": 80.0,
-          "record_date": "09/11/2026"
+          "price": 30.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 90.0,
-          "record_date": "09/11/2026"
+          "price": 38.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 10.1,
-      "saving_pct": 11.2,
-      "original_price": 159.6,
-      "url": "https://www.hktvmall.com/hktv/en/main/UK-Street/s/H3550001/Supermarket/Supermarket/Canned%2C-Dried-Seafood-%26-Tonics/Canned-Meat/Spain-Iberico-Luncheon-Meat/p/H0888001_S_10021318C",
+      "saving_vs_dearest": 8.1,
+      "saving_pct": 21.3,
+      "original_price": 39.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/UK-Street/s/H3550001/Supermarket/Supermarket/Canned%2C-Dried-Seafood-%26-Tonics/Canned-Meat/Spain-Iberico-Luncheon-Meat-Parallel-Import-Product/p/H0888001_S_10021318",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -988,11 +984,11 @@
         },
         "parknshop": {
           "price": 24.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 22.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1021,11 +1017,11 @@
         },
         "parknshop": {
           "price": 24.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 24.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1040,32 +1036,32 @@
       "id": "ketchup",
       "name_zh": "茄汁",
       "name_en": "Tomato Ketchup",
-      "product_name_zh": "蕃茄汁 (新舊包裝隨機發送) [逢週一開搶，限購兩件]",
-      "product_name_en": "Tomato Ketchup (Random delivery of old and new packings)",
+      "product_name_zh": "蕃茄醬風味薯片(罐裝) x2",
+      "product_name_en": "Cottage Fries Potato Chips - Tomato Ketchup Flavour",
       "category": "sauces",
-      "brand": "Del Monte",
+      "brand": "WISE",
       "store": "THE MARKET",
-      "pack": "300g",
-      "unit_price": 41.0,
+      "pack": "100g x 2",
+      "unit_price": 109.5,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 12.3
+          "price": 21.9
         },
         "parknshop": {
-          "price": 12.5,
-          "record_date": "09/11/2026"
+          "price": 28.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 6.25,
-          "record_date": "09/11/2026"
+          "price": 22.0,
+          "record_date": "11/11/2026"
         }
       },
-      "cheapest": "wellcome",
-      "saving_vs_dearest": 6.25,
-      "saving_pct": 50.0,
-      "original_price": 13.64,
-      "url": "https://www.hktvmall.com/hktv/en/main/Well-Synergy/s/H1016001/Supermarket/Supermarket/Seasoning/Western-Sauce/Tomato-Sauce/Tomato-Ketchup-Random-delivery-of-old-and-new-packings/p/H0888001_S_10005530",
+      "cheapest": "hktvmall",
+      "saving_vs_dearest": 6.1,
+      "saving_pct": 21.8,
+      "original_price": 49.6,
+      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Snacks-%26-Desserts/Potato-Chips-%26-Prawn-Crackers/Potato-Chips-%26-Fries/Cottage-Fries-Potato-Chips-Tomato-Ketchup-Flavour/p/H0888001_S_10015673A",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -1087,11 +1083,11 @@
         },
         "parknshop": {
           "price": 19.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 17.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1145,7 +1141,7 @@
         },
         "parknshop": {
           "price": 14.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1185,24 +1181,24 @@
       "id": "vinegar",
       "name_zh": "醋",
       "name_en": "Vinegar",
-      "product_name_zh": "Vinegar 意大利飛鷹四星黑醋 500ml # 54439685 De Nigris 4 Stars Balsamic Vinegar , Italy  #世界各地都深受讚賞，是意式美食的最佳配搭",
-      "product_name_en": "Vinegar 意大利飛鷹四星黑醋 500ml # 54439685 De Nigris 4 Stars Balsamic Vinegar , Italy  #世界各地都深受讚賞，是意式美食的最佳配搭",
+      "product_name_zh": "【日本直送】藍莓葡萄黑酢 黑醋飲品 1L",
+      "product_name_en": "[Direct Import from Japan] Premium Blueberry Black Vinegar Straight Drink 1L",
       "category": "sauces",
-      "brand": "De Nigris  Balsamic Vinegar",
-      "store": "SUPRMART",
-      "pack": "",
-      "unit_price": null,
-      "unit_price_unit": null,
+      "brand": "Mizkan",
+      "store": "Pure Source",
+      "pack": "1000ml",
+      "unit_price": 27.9,
+      "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 37.8
+          "price": 27.9
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
-      "original_price": 58.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/SUPRMART/s/H8032002/Supermarket/Supermarket/Seasoning/Western-Sauce/Vinegar/Vinegar-%E6%84%8F%E5%A4%A7%E5%88%A9%E9%A3%9B%E9%B7%B9%E5%9B%9B%E6%98%9F%E9%BB%91%E9%86%8B-500ml-54439685-De-Nigris-4-Stars-Balsamic-Vinegar-Italy-%E4%B8%96%E7%95%8C%E5%90%84%E5%9C%B0%E9%83%BD%E6%B7%B1%E5%8F%97%E8%AE%9A%E8%B3%9E%E6%98%AF%E6%84%8F%E5%BC%8F%E7%BE%8E%E9%A3%9F%E7%9A%84%E6%9C%80%E4%BD%B3%E9%85%8D%E6%90%AD/p/H8032002_S_SP-00013",
+      "original_price": 45.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/Pure-Source/s/H1079001/Supermarket/Supermarket/Beverages/Juices/Bottled-Juices/Direct-Import-from-Japan-Premium-Blueberry-Black-Vinegar-Straight-Drink-1L/p/H0888001_S_10158665",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -1210,33 +1206,29 @@
       "id": "drink-cola",
       "name_zh": "可樂",
       "name_en": "Coca-Cola",
-      "product_name_zh": "[原箱] 罐裝可口可樂汽水 (新舊包裝隨機發送)",
-      "product_name_en": "[Full Case] Coca-Cola x8 x3 (Random delivery of old and new packings)",
+      "product_name_zh": "可口可樂330毫升X12罐 (新舊包裝隨機發送)",
+      "product_name_en": "Coca Cola 330ML X 12(Can) (Random delivery of old and new packings)",
       "category": "drinks",
       "brand": "可口可樂",
       "store": "Swire Coca-Cola Official Flagship Store",
-      "pack": "330ml x 8 x 3",
-      "unit_price": 30.27,
+      "pack": "330ml x 12",
+      "unit_price": 12.12,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 79.9
+          "price": 48.0
         },
         "parknshop": {
-          "price": 80.0,
-          "record_date": "09/11/2026"
-        },
-        "wellcome": {
-          "price": 80.0,
-          "record_date": "09/11/2026"
+          "price": 51.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.1,
-      "original_price": 164.4,
-      "url": "https://www.hktvmall.com/hktv/en/main/Coca-Cola-Official-Store/s/H1108001/Supermarket/Supermarket/Beverages/Soft-Drinks/Full-Case-CocaCola-x8-x3-Random-delivery-of-old-and-new-packings/p/H0888001_S_P10021200",
-      "has_3_stores": true,
+      "saving_vs_dearest": 3.0,
+      "saving_pct": 5.9,
+      "original_price": 81.5,
+      "url": "https://www.hktvmall.com/hktv/en/main/Coca-Cola-Official-Store/s/H1108001/Supermarket/Supermarket/Beverages/Soft-Drinks/Coca-Cola-330ML-X-12Can-Random-delivery-of-old-and-new-packings/p/H0888001_S_10022674",
+      "has_3_stores": false,
       "in_stock": true
     },
     {
@@ -1257,11 +1249,11 @@
         },
         "parknshop": {
           "price": 46.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 48.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1290,7 +1282,7 @@
         },
         "wellcome": {
           "price": 18.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1311,110 +1303,126 @@
       "brand": "Dai Pai Dong",
       "store": "THE MARKET",
       "pack": "2.5g x 100",
-      "unit_price": 183.2,
+      "unit_price": 179.6,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 45.8
+          "price": 44.9
         },
         "parknshop": {
           "price": 45.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
+        },
+        "wellcome": {
+          "price": 45.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.2,
+      "saving_vs_dearest": 1.0,
+      "saving_pct": 2.2,
       "original_price": 57.9,
       "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Beverages/Tea-Bags-Leaves/Black-Tea/Premium-Ceylon-Tea-Bag/p/H0888001_S_10015374",
-      "has_3_stores": false,
+      "has_3_stores": true,
       "in_stock": true
     },
     {
       "id": "drink-coffee",
       "name_zh": "即溶咖啡",
       "name_en": "Instant Coffee",
-      "product_name_zh": "(BBD:21/11/2027) 99% SF即溶意式泡沫咖啡16g x 10 (2730)",
-      "product_name_en": "(BBD:21/11/2027) 99% SF Cappuccino Instant Coffee Mix 16g x10 (2730)",
+      "product_name_zh": "雀巢咖啡 行貨 醇品即溶咖啡粉(玻璃樽裝) - 200克",
+      "product_name_en": "Nescafé Rich Blend Instant Coffee Powder 200gm",
       "category": "drinks",
-      "brand": "AVALANCHE",
-      "store": "NZ Supreme",
-      "pack": "",
+      "brand": "NESCAFÉ",
+      "store": "Tenth Online Store",
+      "pack": "200gm",
       "unit_price": null,
       "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 56.0
+          "price": 56.5
         },
         "parknshop": {
-          "price": 56.0,
-          "record_date": "09/11/2026"
+          "price": 62.5,
+          "record_date": "11/11/2026"
+        },
+        "wellcome": {
+          "price": 57.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.0,
-      "saving_pct": 0.0,
-      "original_price": 59.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/NZ-Supreme/s/S2114001/Supermarket/Supermarket/Beverages/Instant-Coffee-Milk-Tea/Instant-Coffee/BBD21112027-99-SF-Cappuccino-Instant-Coffee-Mix-16g-x10-2730/p/S2114001_S_ACSFCP01",
-      "has_3_stores": false,
+      "saving_vs_dearest": 6.0,
+      "saving_pct": 9.6,
+      "original_price": 98.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Tenth-Online-Store/s/H1272001/Supermarket/Supermarket/Beverages/Instant-Coffee-Milk-Tea/Instant-Coffee/Nescaf%C3%A9-Rich-Blend-Instant-Coffee-Powder-200gm/p/H8260001_S_50000085",
+      "has_3_stores": true,
       "in_stock": true
     },
     {
       "id": "drink-water",
       "name_zh": "蒸餾水",
       "name_en": "Distilled Water",
-      "product_name_zh": "[原箱] 純蒸餾水 700ml x 24支",
-      "product_name_en": "[Full Case] Pure Distilled Water 700ml x 24",
+      "product_name_zh": "[原箱] 蒸餾水 4.5L x 4",
+      "product_name_en": "[FULL CASE] Pure Distilled Water 4.5L x 4",
       "category": "drinks",
-      "brand": "Vita",
-      "store": "VITASOY / VITA",
-      "pack": "700ml x 24",
-      "unit_price": 3.45,
+      "brand": "watsons",
+      "store": "Watsons Water",
+      "pack": "4.5L x 4",
+      "unit_price": 4.44,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 57.9
+          "price": 79.9
+        },
+        "parknshop": {
+          "price": 85.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 58.0,
-          "record_date": "09/11/2026"
+          "price": 82.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.2,
-      "original_price": 99.9,
-      "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Water/Full-Case-Pure-Distilled-Water-700ml-x-24-/p/H0888001_S_P10003353",
-      "has_3_stores": false,
+      "saving_vs_dearest": 5.1,
+      "saving_pct": 6.0,
+      "original_price": 134.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Watsons-Water/s/H1017002/Supermarket/Supermarket/Beverages/Water/FULL-CASE-Pure-Distilled-Water-45L-x-4/p/H0888001_S_P10020857",
+      "has_3_stores": true,
       "in_stock": true
     },
     {
       "id": "drink-sports",
       "name_zh": "運動飲品",
       "name_en": "Sports Drink",
-      "product_name_zh": "膠樽裝運動飲料",
-      "product_name_en": "Sports drink (Bottle)",
+      "product_name_zh": "運動飲品 檸檬味 600mL [平行進口] BBF: 2027-7-12 #90169",
+      "product_name_en": "Gatorade Sports Drink Lemon Flavor 600mL [Parallel Import] BBF: 2027-7-12 #90169",
       "category": "drinks",
-      "brand": "AQUARIUS",
-      "store": "Swire Coca-Cola Official Flagship Store",
-      "pack": "1.2L",
-      "unit_price": 14.0,
-      "unit_price_unit": "per L",
+      "brand": "Gatorade",
+      "store": "Living With Vanus",
+      "pack": "",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 16.8
+          "price": 6.8
         },
         "parknshop": {
-          "price": 16.9,
-          "record_date": "09/11/2026"
+          "price": 12.9,
+          "record_date": "11/11/2026"
+        },
+        "wellcome": {
+          "price": 10.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.6,
-      "original_price": 21.9,
-      "url": "https://www.hktvmall.com/hktv/en/main/Coca-Cola-Official-Store/s/H1108001/Supermarket/Supermarket/Beverages/Energy-Drinks/Sports-drink-Bottle/p/H0888001_S_10169359",
-      "has_3_stores": false,
+      "saving_vs_dearest": 6.1,
+      "saving_pct": 47.3,
+      "original_price": 9.5,
+      "url": "https://www.hktvmall.com/hktv/en/main/Living-With-Vanus/s/H9340001/Supermarket/Supermarket/Beverages/Energy-Drinks/Gatorade-Sports-Drink-Lemon-Flavor-600mL-Parallel-Import-BBF-2027712-90169/p/H9340001_S_67375",
+      "has_3_stores": true,
       "in_stock": true
     },
     {
@@ -1446,32 +1454,32 @@
       "id": "snack-chips",
       "name_zh": "薯片",
       "name_en": "Potato Chips",
-      "product_name_zh": "熱浪香辣味薯片 x 2(包裝隨機發送)",
-      "product_name_en": "Potato Chips Hot and Spicy x2 (Random Delivery)",
+      "product_name_zh": "蕃茄醬風味薯片(罐裝) x2",
+      "product_name_en": "Cottage Fries Potato Chips - Tomato Ketchup Flavour",
       "category": "snacks",
-      "brand": "Calbee",
+      "brand": "WISE",
       "store": "THE MARKET",
-      "pack": "55g x 2",
-      "unit_price": 262.73,
+      "pack": "100g x 2",
+      "unit_price": 109.5,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 28.9
+          "price": 21.9
         },
         "parknshop": {
-          "price": 32.0,
-          "record_date": "09/11/2026"
+          "price": 28.0,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 29.0,
-          "record_date": "09/11/2026"
+          "price": 22.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 3.1,
-      "saving_pct": 9.7,
-      "original_price": 33.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Snacks-%26-Desserts/Potato-Chips-%26-Prawn-Crackers/Potato-Chips-%26-Fries/Potato-Chips-Hot-and-Spicy-x2-Random-Delivery/p/H0888001_S_10011231A",
+      "saving_vs_dearest": 6.1,
+      "saving_pct": 21.8,
+      "original_price": 49.6,
+      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Snacks-%26-Desserts/Potato-Chips-%26-Prawn-Crackers/Potato-Chips-%26-Fries/Cottage-Fries-Potato-Chips-Tomato-Ketchup-Flavour/p/H0888001_S_10015673A",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -1493,11 +1501,11 @@
         },
         "parknshop": {
           "price": 26.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 26.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1526,11 +1534,11 @@
         },
         "parknshop": {
           "price": 47.5,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 43.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1559,11 +1567,11 @@
         },
         "parknshop": {
           "price": 53.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 41.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1592,11 +1600,11 @@
         },
         "parknshop": {
           "price": 30.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 16.9,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1636,28 +1644,28 @@
       "id": "house-toilet-paper",
       "name_zh": "廁紙 10卷",
       "name_en": "Toilet Paper 10 rolls",
-      "product_name_zh": "三層印花茉莉花香衛生紙(10卷) x 1件",
-      "product_name_en": "Three-ply printed jasmine-scented toilet paper (10 rolls) x 1 piece",
+      "product_name_zh": "(橙色)金裝防淤塞三層高級衛生紙10卷裝",
+      "product_name_en": "(Orange) Gold Anti-Clog 3-Ply Premium Toilet Tissue 10 Rolls",
       "category": "household",
-      "brand": "Tempo",
-      "store": "SEI GOR COME AND BUY",
+      "brand": "Pulppy",
+      "store": "Show Good",
       "pack": "",
       "unit_price": null,
       "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 68.0
+          "price": 38.5
         },
         "parknshop": {
-          "price": 46.0,
-          "record_date": "09/11/2026"
+          "price": 42.9,
+          "record_date": "11/11/2026"
         }
       },
-      "cheapest": "parknshop",
-      "saving_vs_dearest": 22.0,
-      "saving_pct": 32.4,
-      "original_price": 78.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/SEI-GOR-COME-AND-BUY/s/B0551001/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Bathroom-Tissues/Threeply-printed-jasminescented-toilet-paper-10-rolls-x-1-piece/p/B0551001_S_C1",
+      "cheapest": "hktvmall",
+      "saving_vs_dearest": 4.4,
+      "saving_pct": 10.3,
+      "original_price": 42.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/Show-Good/s/B2008001/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Bathroom-Tissues/Orange-Gold-AntiClog-3Ply-Premium-Toilet-Tissue-10-Rolls/p/B2008001_S_81F0477",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -1665,32 +1673,32 @@
       "id": "house-tissue",
       "name_zh": "紙巾",
       "name_en": "Facial Tissue",
-      "product_name_zh": "[原箱18包] 袋裝面紙(天然無香) (新舊包裝隨機發送)  #紙巾#Tissue#抽紙#軟抽#BB#軟包#袋裝紙巾#寵物#網店獨家",
-      "product_name_en": "[Full Case 18 pack] Softpack Facial Tissues (Neutral) (Random Delivery",
+      "product_name_zh": "[原箱24包] 超韌袋裝面紙 (中碼) 天然無香 (款式隨機發送) #紙巾#軟抽#3層柔韌#BB寵物可用#網店獨家",
+      "product_name_en": "[Full Case] Ultra Strong M Size Soft Pack Paper (Randomly Delivery)",
       "category": "household",
-      "brand": "Tempo",
-      "store": "Tempo Tissue HK Official Store",
-      "pack": "18 packs",
-      "unit_price": 4.99,
-      "unit_price_unit": "per pack",
+      "brand": "Vinda",
+      "store": "Vinda Hong Kong Official Store",
+      "pack": "1 case",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 89.8
+          "price": 114.0
         },
         "parknshop": {
-          "price": 89.9,
-          "record_date": "09/11/2026"
+          "price": 58.9,
+          "record_date": "11/11/2026"
         },
         "wellcome": {
-          "price": 89.9,
-          "record_date": "09/11/2026"
+          "price": 58.9,
+          "record_date": "11/11/2026"
         }
       },
-      "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.1,
-      "original_price": 140.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Tempo/s/H1066002/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Boxed-Facial-Tissues/Full-Case-18-pack-Softpack-Facial-Tissues-Neutral-Random-Delivery/p/H0888001_S_P10138220",
+      "cheapest": "parknshop",
+      "saving_vs_dearest": 55.1,
+      "saving_pct": 48.3,
+      "original_price": null,
+      "url": "https://www.hktvmall.com/hktv/en/main/Vinda/s/H1066001/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Boxed-Facial-Tissues/Full-Case-Ultra-Strong-M-Size-Soft-Pack-Paper-Randomly-Delivery/p/H0888001_S_P10136094",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -1712,11 +1720,11 @@
         },
         "parknshop": {
           "price": 32.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 32.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1745,7 +1753,7 @@
         },
         "wellcome": {
           "price": 28.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1766,20 +1774,20 @@
       "brand": "Scott",
       "store": "Andrex/Kleenex/Scott Official Tissue Store",
       "pack": "6 Rolls",
-      "unit_price": 4.33,
+      "unit_price": 5.48,
       "unit_price_unit": "per roll",
       "prices": {
         "hktvmall": {
-          "price": 26.0
+          "price": 32.9
         },
         "parknshop": {
           "price": 33.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 7.0,
-      "saving_pct": 21.2,
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.3,
       "original_price": 38.9,
       "url": "https://www.hktvmall.com/hktv/en/main/Andrex-Kleenex-Scott-Official-Tissue-Store/s/H0551003/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Kitchen-Towels/Scott-2ply-Kitchen-Towel-6R-Passed-HACCP-FDA-LFGB-Certification/p/H0888001_S_10050058",
       "has_3_stores": false,
@@ -1820,8 +1828,8 @@
       "brand": "G Shampoo",
       "store": "Hair Growth【Japan made G SHAMPOO】by MIBIKI",
       "pack": "400mlx2pc",
-      "unit_price": 34.5,
-      "unit_price_unit": "per pcs",
+      "unit_price": 172.5,
+      "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
           "price": 138.0
@@ -1839,70 +1847,70 @@
       "id": "care-shower-gel",
       "name_zh": "沐浴露",
       "name_en": "Shower Gel",
-      "product_name_zh": "[優惠套裝] 滴露Profresh清爽保濕沐浴露水感蜜桃 950g孖裝 + 滴露經典松木殺菌潔手液 150g (新舊包裝隨機發送)",
-      "product_name_en": "[Combo Set] Profresh Peach Burst Body Wash 950g Twin Pack + Hand Wash (Original) 150g  (Random Deliv",
+      "product_name_zh": "[優惠孖裝] Skin Relief天然燕麥高效舒緩沐浴露1公升 [原裝行貨]  #極乾及敏感肌膚 #舒緩皮膚敏感 #皮膚痕癢泛紅乾燥 #溫和潔膚 #三重燕麥精華(燕麥膠 燕麥油 燕麥精粹)",
+      "product_name_en": "[Twin Pack] Skin Relief Body Wash 1L (Random Delivery)",
       "category": "personal-care",
-      "brand": "Dettol",
-      "store": "Dettol Store Official",
-      "pack": "950g x 2+150g",
-      "unit_price": 43.16,
-      "unit_price_unit": "per kg",
+      "brand": "Aveeno",
+      "store": "Kenvue (Johnson & Johnson Consumer HK Ltd)",
+      "pack": "1000ml x2",
+      "unit_price": 106.8,
+      "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 82.0
+          "price": 213.6
         },
         "parknshop": {
-          "price": 81.9,
-          "record_date": "09/11/2026"
+          "price": 219.8,
+          "record_date": "11/11/2026"
+        },
+        "wellcome": {
+          "price": 218.0,
+          "record_date": "11/11/2026"
         }
       },
-      "cheapest": "parknshop",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.1,
-      "original_price": 105.9,
-      "url": "https://www.hktvmall.com/hktv/en/main/Dettol/s/H1010002/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Body-Care/Body-Wash/Combo-Set-Profresh-Peach-Burst-Body-Wash-950g-Twin-Pack-Hand-Wash-Original-150g-Random-Deliv/p/H0888001_S_10132761",
-      "has_3_stores": false,
+      "cheapest": "hktvmall",
+      "saving_vs_dearest": 6.2,
+      "saving_pct": 2.8,
+      "original_price": 378.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Johnson-%26-Johnson/s/H0526001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Body-Care/Body-Wash/Twin-Pack-Skin-Relief-Body-Wash-1L-Random-Delivery/p/H0888001_S_10040260A",
+      "has_3_stores": true,
       "in_stock": true
     },
     {
       "id": "care-toothpaste",
       "name_zh": "牙膏",
       "name_en": "Toothpaste",
-      "product_name_zh": "[優惠孖裝] MIRACLE REPAIR奇績修護煥齦 舒緩牙齦不適 預防敏感牙齒 緊緻牙肉 解決牙肉萎縮氨基酸牙膏 (清香茉莉花茶味)",
-      "product_name_en": "[Twin Packs] Miracle Repair Gum Repair Toothpaste (Jasmine)",
+      "product_name_zh": "[3支優惠裝] 預防蛀牙清新口氣牙膏 (清新薄荷)(新舊包裝隨機發送)",
+      "product_name_en": "[3 Tubes] Anticavity Maximum Cavity Protection Toothpaste (Great Regular Flavor) (Random Delivery)",
       "category": "personal-care",
       "brand": "高露潔",
       "store": "【Colgate-Palmolive Flagship Store】",
-      "pack": "90g x2",
-      "unit_price": 549.44,
+      "pack": "NEW: 200g x3",
+      "unit_price": 73.17,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 98.9
+          "price": 43.9
         },
         "parknshop": {
-          "price": 139.8,
-          "record_date": "09/11/2026"
-        },
-        "wellcome": {
-          "price": 99.8,
-          "record_date": "09/11/2026"
+          "price": 44.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 40.9,
-      "saving_pct": 29.3,
-      "original_price": 199.8,
-      "url": "https://www.hktvmall.com/hktv/en/main/Colgate-%28Hong-Kong%29/s/H1022001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Dental-Care/Toothpaste/Gum-Health-Toothpaste/Twin-Packs-Miracle-Repair-Gum-Repair-Toothpaste-Jasmine/p/H0888001_S_10138088A",
-      "has_3_stores": true,
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.2,
+      "original_price": 77.5,
+      "url": "https://www.hktvmall.com/hktv/en/main/Colgate-%28Hong-Kong%29/s/H1022001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Dental-Care/Toothpaste/Fresh-Toothpaste/3-Tubes-Anticavity-Maximum-Cavity-Protection-Toothpaste-Great-Regular-Flavor-Random-Delivery/p/H0888001_S_10001989",
+      "has_3_stores": false,
       "in_stock": true
     },
     {
       "id": "care-hand-wash",
       "name_zh": "洗手液",
       "name_en": "Hand Wash",
-      "product_name_zh": "滴露經典松木潔手液500克3支優惠裝 #洗手液 #殺菌 #消毒",
-      "product_name_en": "[3 Packs Combo] Dettol Anti-Bacterial pH- Balanced  Hand Wash (Original) 500g",
+      "product_name_zh": "滴露敏感肌膚潔手液500g 3支優惠裝 (新舊包裝隨機發送) #洗手液 #殺菌 #消毒",
+      "product_name_en": "[3 Packs Combo] Dettol Anti-Bacterial pH- Balanced Hand Wash (Sensitive) 500g (Randomly Delivery)",
       "category": "personal-care",
       "brand": "Dettol",
       "store": "Dettol Store Official",
@@ -1915,18 +1923,18 @@
         },
         "parknshop": {
           "price": 80.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         },
         "wellcome": {
           "price": 80.0,
-          "record_date": "09/11/2026"
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.1,
       "saving_pct": 0.1,
-      "original_price": 89.9,
-      "url": "https://www.hktvmall.com/hktv/en/main/Dettol/s/H1010002/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Hand-Care/Hand-Wash/3-Packs-Combo-Dettol-AntiBacterial-pH-Balanced-Hand-Wash-Original-500g/p/H0888001_S_10014503",
+      "original_price": 95.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/Dettol/s/H1010002/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Hand-Care/Hand-Wash/3-Packs-Combo-Dettol-AntiBacterial-pH-Balanced-Hand-Wash-Sensitive-500g-Randomly-Delivery/p/H0888001_S_10014504",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -1934,41 +1942,37 @@
       "id": "care-wet-wipes",
       "name_zh": "濕紙巾",
       "name_en": "Wet Wipes",
-      "product_name_zh": "殺菌抗流感! [原盒][30包] Protect抗菌倍護濕紙巾 (新舊包裝隨機發送) #濕巾#Tissue#抗菌#流感#殺滅99%流感病毒#Protect",
-      "product_name_en": "[Full Box] Protect Disinfectant Wet Wipes(Anti-bacterial/Anti-septic) (Random Packing)",
+      "product_name_zh": "家居消毒濕紙巾補充裝(綠茶)",
+      "product_name_en": "Disposable Wet Wipe-Refill (Green Tea)",
       "category": "personal-care",
-      "brand": "Tempo",
-      "store": "Tempo Tissue HK Official Store",
-      "pack": "10pcs x 30packs",
-      "unit_price": 0.8,
+      "brand": "Magiclean",
+      "store": "KAO",
+      "pack": "80 pc",
+      "unit_price": 0.5,
       "unit_price_unit": "per pcs",
       "prices": {
         "hktvmall": {
-          "price": 239.9
+          "price": 39.7
         },
         "parknshop": {
-          "price": 240.0,
-          "record_date": "09/11/2026"
-        },
-        "wellcome": {
-          "price": 240.0,
-          "record_date": "09/11/2026"
+          "price": 39.8,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.1,
-      "saving_pct": 0.0,
-      "original_price": 417.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Tempo/s/H1066002/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Pocketable-Wet-Wipe/Full-Box-Protect-Disinfectant-Wet-WipesAntibacterialAntiseptic-Random-Packing/p/H0888001_S_P10001913",
-      "has_3_stores": true,
+      "saving_pct": 0.3,
+      "original_price": 44.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/KAO/s/H0638001/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Household-and-Kitchen-Wipe/Disposable-Wet-WipeRefill-Green-Tea/p/H0888001_S_10060317",
+      "has_3_stores": false,
       "in_stock": true
     }
   ],
   "missed": [],
   "stats": {
     "tracked": 66,
-    "with_3_stores": 29,
-    "with_unit_price": 53,
+    "with_3_stores": 31,
+    "with_unit_price": 50,
     "missed_count": 0
   }
 }
