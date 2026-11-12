@@ -96,7 +96,36 @@ def search(session, app_id, api_key, queries, hits_per_page=8):
 
 _QTY_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(kg|g|l|ml|lb|oz|pcs|pc|rolls?|pack|packs|bags?)\b",
                      re.I)
-_MULT_RE = re.compile(r"[x×]\s*(\d+)\s*(?:\(|$)")
+def _multiplier(text):
+    """Total pack multiplier from 'x N' forms.
+
+    - '250ml x 6' / '400mlx2pc' / '310ml x 6can': the number after the x
+      multiplies the size (the size unit sits just before the x).
+    - '330ml x 8 x 3': chained multipliers multiply together (8 x 3 = 24).
+    - '2 x 500ml' / '6 x 250ml': the count BEFORE the x multiplies; the
+      number after the x is the size itself, not a multiplier.
+    The old code took the first '[x] number' anywhere, so '330ml x 8 x 3'
+    read 8 instead of 24 (unit price 3x too high) and '2 x 500ml' read
+    500 (250 litres!). Digit guards stop 'x 500' backtracking to 50.
+    """
+    mult = 1
+    # Leading count: "2 x 500ml" -> 2.
+    m = re.match(r"\s*(\d+)\s*[x×]\s*\d", text)
+    if m:
+        mult *= int(m.group(1))
+    # Trailing multipliers, anchored on a size unit just before the x,
+    # then any chained bare 'x N' that follows.
+    m = re.search(r"(?:kg|g|ml|l|lb|oz|pcs?|pc)\s*[x×]\s*(\d+)(?!\d)", text)
+    if m:
+        mult *= int(m.group(1))
+        pos = m.end()
+        while True:
+            m2 = re.match(r"\s*[x×]\s*(\d+)(?!\d)", text[pos:])
+            if not m2:
+                break
+            mult *= int(m2.group(1))
+            pos += m2.end()
+    return mult
 
 
 def parse_pack(spec_en, spec_zh=""):
@@ -107,11 +136,10 @@ def parse_pack(spec_en, spec_zh=""):
     text = " ".join([spec_en or "", spec_zh or ""]).lower()
     if not text.strip():
         return None, None
-    # multiplier: "250ml x 6" / "250ml x6"
-    mult = 1
-    m = re.search(r"[x×]\s*(\d+)", text)
-    if m:
-        mult = int(m.group(1))
+    # A unit glued to its multiplier ("400mlx2pc") defeats the \b in
+    # _QTY_RE, so space it out first: "400ml x2pc".
+    text = re.sub(r"(kg|g|ml|l|lb|oz|pcs?|pc)([x×])", r"\1 \2", text)
+    mult = _multiplier(text)
     amounts = []
     for num, unit in _QTY_RE.findall(text):
         val = float(num)
