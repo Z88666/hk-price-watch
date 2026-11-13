@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-12T07:57:12+08:00",
-  "date": "2026-11-12",
+  "generated_at": "2026-11-13T07:36:41+08:00",
+  "date": "2026-11-13",
   "source": "HKTVmall public search API (Algolia) — prices as listed on hktvmall.com; PARKnSHOP / Wellcome prices are HKTVmall's own recorded competitor prices (kaPriceList) with record dates, not scraped from those stores directly.",
   "currency": "HKD",
   "stores": {
@@ -27,11 +27,11 @@
         },
         "parknshop": {
           "price": 72.9,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         },
         "wellcome": {
           "price": 72.9,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -143,11 +143,11 @@
         },
         "parknshop": {
           "price": 89.9,
-          "record_date": "11/11/2026"
+          "record_date": "12/11/2026"
         },
         "wellcome": {
           "price": 92.9,
-          "record_date": "11/11/2026"
+          "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -176,7 +176,7 @@
         },
         "parknshop": {
           "price": 129.9,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -204,17 +204,17 @@
           "price": 34.5
         },
         "parknshop": {
-          "price": 37.5,
-          "record_date": "12/11/2026"
+          "price": 34.5,
+          "record_date": "13/11/2026"
         },
         "wellcome": {
-          "price": 35.0,
-          "record_date": "12/11/2026"
+          "price": 38.0,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 3.0,
-      "saving_pct": 8.0,
+      "saving_vs_dearest": 3.5,
+      "saving_pct": 9.2,
       "original_price": 57.0,
       "url": "https://www.hktvmall.com/hktv/en/main/SUPRMART/s/H8032002/Supermarket/Supermarket/Seasoning/Flour-%26-Pancake-Mix/%E6%BE%B3%E6%B4%B2%E7%99%BD%E7%BF%BC%E7%89%8C%E9%BA%B5%E7%B2%89-1kg76510454-White-Wings-Flour-Plain-Random-for-oldnew-packaging/p/H8032002_S_PR-00019",
       "has_3_stores": true,
@@ -284,7 +284,7 @@
       "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 28.5
+          "price": 37.7
         },
         "parknshop": {
           "price": 38.0,
@@ -296,8 +296,8 @@
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 9.5,
-      "saving_pct": 25.0,
+      "saving_vs_dearest": 0.3,
+      "saving_pct": 0.8,
       "original_price": 59.8,
       "url": "https://www.hktvmall.com/hktv/en/main/Lee-Kum-Kee/s/H1028001/Supermarket/Supermarket/Seasoning/Soy-%26-Oyster-Sauce/Soy-Sauce/Double-Deluxe-Soy-Sauce-500ml-x-2-Random-gift-soysauce-darksoysauce-premium/p/H0888001_S_10138547",
       "has_3_stores": true,
@@ -345,13 +345,13 @@
           "price": 16.0
         },
         "parknshop": {
-          "price": 17.8,
-          "record_date": "12/11/2026"
+          "price": 20.5,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 1.8,
-      "saving_pct": 10.1,
+      "saving_vs_dearest": 4.5,
+      "saving_pct": 22.0,
       "original_price": 22.0,
       "url": "https://www.hktvmall.com/hktv/en/main/Eastern-Zone/s/B0355001/Supermarket/Supermarket/Noodles-%26-Pasta/Pasta-%26-Macaroni/Pasta/Spaghetti-500g-New-and-old-packaging-are-shipped-randomly/p/B0355001_S_CVTP003",
       "has_3_stores": false,
@@ -394,24 +394,24 @@
       "id": "eggs-10",
       "name_zh": "雞蛋 10隻",
       "name_en": "Fresh Eggs 10pcs",
-      "product_name_zh": "新鮮大啡蛋（10隻)",
-      "product_name_en": "Fresh Brown Eggs (10pcs )",
+      "product_name_zh": "日本青森坂本無激素雞蛋 (10隻) x 1 盒 #無添加 #日本雞蛋",
+      "product_name_en": "Japan Hormone-Free Fresh Eggs (10pcs) x 1 box",
       "category": "eggs-dairy",
-      "brand": "Unionsum",
-      "store": "Unionsum",
-      "pack": "",
-      "unit_price": null,
-      "unit_price_unit": null,
+      "brand": "Aplex",
+      "store": "Aplex",
+      "pack": "1pack (10pcs)",
+      "unit_price": 24.8,
+      "unit_price_unit": "per pack",
       "prices": {
         "hktvmall": {
-          "price": 23.0
+          "price": 24.8
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
-      "original_price": 45.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Unionsum/s/S1307001/Supermarket/Supermarket/Eggs/Eggs/China/Fresh-Brown-Eggs-10pcs-/p/S1307001_S_EG007",
+      "original_price": 35.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Aplex/s/H7229001/Supermarket/Supermarket/Eggs/Eggs/Japan/Japan-HormoneFree-Fresh-Eggs-10pcs-x-1-box/p/H7229001_S_JPFS00033",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -504,11 +504,11 @@
       "brand": "Vitasoy",
       "store": "VITASOY / VITA",
       "pack": "250ml x 6",
-      "unit_price": 13.43,
+      "unit_price": 15.27,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 20.15
+          "price": 22.9
         },
         "parknshop": {
           "price": 23.0,
@@ -520,8 +520,8 @@
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 2.85,
-      "saving_pct": 12.4,
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.4,
       "original_price": 30.0,
       "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/Vitasoy-Soya-Bean-Milk-250ml-x-6Packs-Packing-Randomly-Delivery/p/H0888001_S_10007706",
       "has_3_stores": true,
@@ -802,7 +802,7 @@
         },
         "wellcome": {
           "price": 108.0,
-          "record_date": "11/11/2026"
+          "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -817,32 +817,32 @@
       "id": "noodles-rice-vermicelli",
       "name_zh": "米粉",
       "name_en": "Rice Vermicelli",
-      "product_name_zh": "新加坡米粉 x 3 (新舊包裝隨機派送)",
-      "product_name_en": "Singapore Rice Vermicelli x 3 (Random packings)",
+      "product_name_zh": "銀絲米粉 ( 家庭裝)",
+      "product_name_en": "Instant Rice Vermicelli",
       "category": "noodles-instant",
-      "brand": "Sau Tao",
+      "brand": "CHEWY",
       "store": "THE MARKET",
-      "pack": "400g x 3",
-      "unit_price": 23.25,
+      "pack": "280g x 4",
+      "unit_price": 37.41,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 27.9
+          "price": 41.9
         },
         "parknshop": {
-          "price": 28.0,
+          "price": 42.0,
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 35.0,
+          "price": 42.0,
           "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 7.1,
-      "saving_pct": 20.3,
-      "original_price": 44.7,
-      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Noodles-%26-Pasta/Asian-style-Noodles/Non-Fried-Noodles/Singapore-Rice-Vermicelli-x-3-Random-packings/p/H0888001_S_10131964B",
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.2,
+      "original_price": 51.6,
+      "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Noodles-%26-Pasta/Asian-style-Noodles/Rice-Noodles-%26-Vermicelli/Instant-Rice-Vermicelli/p/H0888001_S_10002572A",
       "has_3_stores": true,
       "in_stock": true
     },
@@ -864,7 +864,7 @@
         },
         "parknshop": {
           "price": 14.0,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -896,13 +896,13 @@
           "record_date": "07/11/2026"
         },
         "wellcome": {
-          "price": 10.5,
-          "record_date": "12/11/2026"
+          "price": 19.0,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.6,
-      "saving_pct": 5.7,
+      "saving_vs_dearest": 9.1,
+      "saving_pct": 47.9,
       "original_price": 11.4,
       "url": "https://www.hktvmall.com/hktv/en/main/CHINA-PACIFIC-GROUP-LTD/s/H1169001/Supermarket/Supermarket/Canned%2C-Dried-Seafood-%26-Tonics/Canned-Vegetables-%26-Beans/Baked-Beans-in-Tomato-Sauce/p/H0888001_S_10008624",
       "has_3_stores": true,
@@ -984,16 +984,16 @@
         },
         "parknshop": {
           "price": 24.0,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         },
         "wellcome": {
-          "price": 22.0,
-          "record_date": "12/11/2026"
+          "price": 24.5,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 2.0,
-      "saving_pct": 8.3,
+      "saving_vs_dearest": 2.5,
+      "saving_pct": 10.2,
       "original_price": 28.0,
       "url": "https://www.hktvmall.com/hktv/en/main/SEI-GOR-COME-AND-BUY/s/B0551001/Supermarket/Supermarket/Canned%2C-Dried-Seafood-%26-Tonics/Canned-Fish/Canned-Sardines-in-Tomato-Sauce-215g/p/B0551001_S_Z238-1",
       "has_3_stores": true,
@@ -1075,24 +1075,24 @@
       "brand": "SEALECT",
       "store": "THE MARKET",
       "pack": "85+18g",
-      "unit_price": 938.89,
+      "unit_price": 994.44,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 16.9
+          "price": 17.9
         },
         "parknshop": {
-          "price": 19.0,
-          "record_date": "11/11/2026"
+          "price": 18.0,
+          "record_date": "13/11/2026"
         },
         "wellcome": {
-          "price": 17.0,
-          "record_date": "11/11/2026"
+          "price": 19.0,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 2.1,
-      "saving_pct": 11.1,
+      "saving_vs_dearest": 1.1,
+      "saving_pct": 5.8,
       "original_price": 21.89,
       "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Canned%2C-Dried-Seafood-%26-Tonics/Canned-Fish/Tuna-with-Mayonnaise-in-Japanese-style/p/H0888001_S_10001615",
       "has_3_stores": true,
@@ -1268,28 +1268,28 @@
       "id": "drink-tea-green",
       "name_zh": "綠茶",
       "name_en": "Green Tea Drink",
-      "product_name_zh": "維他氣泡蘋果綠茶飲品 310毫升 6罐裝",
-      "product_name_en": "Vita Sparkling Apple Green Tea Drink 310ML 6 CAN",
+      "product_name_zh": "[6樽] 淳茶舍雲抹日式綠茶飲料 (500ml X 6樽)（新舊包裝隨機發送）",
+      "product_name_en": "6 bottles of Yunmo Japanese Green Tea Drink(500ml X 6 bottles)淳茶舍雲抹日式綠茶飲料(500ml X 6樽)",
       "category": "drinks",
-      "brand": "Vita",
-      "store": "VITASOY / VITA",
-      "pack": "310ml x 6can",
-      "unit_price": 9.62,
+      "brand": "Authentic Tea House",
+      "store": "Tony Outlet",
+      "pack": "500ml X 6 bottles",
+      "unit_price": 13.0,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 17.9
+          "price": 39.0
         },
         "wellcome": {
-          "price": 18.0,
-          "record_date": "11/11/2026"
+          "price": 39.0,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.6,
-      "original_price": 38.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Soft-Drinks/Vita-Sparkling-Apple-Green-Tea-Drink-310ML-6-CAN/p/H0888001_S_10157716",
+      "saving_vs_dearest": 0.0,
+      "saving_pct": 0.0,
+      "original_price": 57.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Tony-Outlet/s/H7712001/Supermarket/Supermarket/Beverages/Tea-Drinks/Bottled-Tea/6-bottles-of-Yunmo-Japanese-Green-Tea-Drink500ml-X-6-bottles%E6%B7%B3%E8%8C%B6%E8%88%8D%E9%9B%B2%E6%8A%B9%E6%97%A5%E5%BC%8F%E7%B6%A0%E8%8C%B6%E9%A3%B2%E6%96%99500ml-X-6%E6%A8%BD/p/H7712001_S_2477",
       "has_3_stores": false,
       "in_stock": true
     },
@@ -1310,13 +1310,13 @@
           "price": 43.0
         },
         "wellcome": {
-          "price": 43.0,
-          "record_date": "11/11/2026"
+          "price": 33.0,
+          "record_date": "13/11/2026"
         }
       },
-      "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.0,
-      "saving_pct": 0.0,
+      "cheapest": "wellcome",
+      "saving_vs_dearest": 10.0,
+      "saving_pct": 23.3,
       "original_price": 56.9,
       "url": "https://www.hktvmall.com/hktv/en/main/Gui-Tea/s/H0550001/Supermarket/Supermarket/Beverages/Tea-Bags-Leaves/Japanese-Tea/Yabukita-Blend-Green-Tea-Bag/p/H0550001_S_HT001",
       "has_3_stores": false,
@@ -1340,16 +1340,16 @@
         },
         "parknshop": {
           "price": 62.5,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         },
         "wellcome": {
-          "price": 57.0,
-          "record_date": "12/11/2026"
+          "price": 51.9,
+          "record_date": "13/11/2026"
         }
       },
-      "cheapest": "hktvmall",
-      "saving_vs_dearest": 6.0,
-      "saving_pct": 9.6,
+      "cheapest": "wellcome",
+      "saving_vs_dearest": 10.6,
+      "saving_pct": 17.0,
       "original_price": 98.0,
       "url": "https://www.hktvmall.com/hktv/en/main/Tenth-Online-Store/s/H1272001/Supermarket/Supermarket/Beverages/Instant-Coffee-Milk-Tea/Instant-Coffee/Nescaf%C3%A9-Rich-Blend-Instant-Coffee-Powder-200gm/p/H8260001_S_50000085",
       "has_3_stores": true,
@@ -1522,24 +1522,24 @@
       "brand": "Snickers",
       "store": "Mars Wrigley Flagship Store",
       "pack": "51g x 5",
-      "unit_price": 168.24,
+      "unit_price": 185.88,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 42.9
+          "price": 47.4
         },
         "parknshop": {
           "price": 47.5,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         },
         "wellcome": {
-          "price": 43.0,
-          "record_date": "12/11/2026"
+          "price": 55.0,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 4.6,
-      "saving_pct": 9.7,
+      "saving_vs_dearest": 7.6,
+      "saving_pct": 13.8,
       "original_price": 64.0,
       "url": "https://www.hktvmall.com/hktv/en/main/Mars-Wrigley-Flagship-Store/s/H1183001/Supermarket/Supermarket/Snacks-%26-Desserts/Chocolate/Nutty-Chocolate/Snickers-Chocolate-Bars-x-5/p/H0888001_S_10004432D",
       "has_3_stores": true,
@@ -1566,8 +1566,8 @@
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 41.0,
-          "record_date": "12/11/2026"
+          "price": 45.9,
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
@@ -1595,17 +1595,17 @@
           "price": 16.8
         },
         "parknshop": {
-          "price": 30.0,
-          "record_date": "12/11/2026"
+          "price": 22.6,
+          "record_date": "13/11/2026"
         },
         "wellcome": {
           "price": 16.9,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 13.2,
-      "saving_pct": 44.0,
+      "saving_vs_dearest": 5.8,
+      "saving_pct": 25.7,
       "original_price": 32.89,
       "url": "https://www.hktvmall.com/hktv/en/main/CJ-Frozen-Product-Store/s/H1073002/Supermarket/Supermarket/Chilled-Frozen-Food/Dumpling-and-Wonton/Bibigo-Vegetable-Pork-Dumpling-Frozen18C/p/H0888001_S_10012011",
       "has_3_stores": true,
@@ -1654,7 +1654,7 @@
         },
         "parknshop": {
           "price": 46.0,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "parknshop",
@@ -1770,11 +1770,11 @@
       "brand": "Scott",
       "store": "Andrex/Kleenex/Scott Official Tissue Store",
       "pack": "6 Rolls",
-      "unit_price": 5.48,
+      "unit_price": 4.33,
       "unit_price_unit": "per roll",
       "prices": {
         "hktvmall": {
-          "price": 32.9
+          "price": 26.0
         },
         "parknshop": {
           "price": 33.0,
@@ -1782,8 +1782,8 @@
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 0.1,
-      "saving_pct": 0.3,
+      "saving_vs_dearest": 7.0,
+      "saving_pct": 21.2,
       "original_price": 38.9,
       "url": "https://www.hktvmall.com/hktv/en/main/Andrex-Kleenex-Scott-Official-Tissue-Store/s/H0551003/Supermarket/Supermarket/Tissues%2C-Disposable-%26-Household-Products/Kitchen-Towels/Scott-2ply-Kitchen-Towel-6R-Passed-HACCP-FDA-LFGB-Certification/p/H0888001_S_10050058",
       "has_3_stores": false,
@@ -1849,11 +1849,11 @@
       "brand": "Aveeno",
       "store": "Kenvue (Johnson & Johnson Consumer HK Ltd)",
       "pack": "1000ml x2",
-      "unit_price": 106.8,
+      "unit_price": 168.95,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 213.6
+          "price": 337.9
         },
         "parknshop": {
           "price": 219.8,
@@ -1864,9 +1864,9 @@
           "record_date": "12/11/2026"
         }
       },
-      "cheapest": "hktvmall",
-      "saving_vs_dearest": 6.2,
-      "saving_pct": 2.8,
+      "cheapest": "wellcome",
+      "saving_vs_dearest": 119.9,
+      "saving_pct": 35.5,
       "original_price": 378.0,
       "url": "https://www.hktvmall.com/hktv/en/main/Johnson-%26-Johnson/s/H0526001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Body-Care/Body-Wash/Twin-Pack-Skin-Relief-Body-Wash-1L-Random-Delivery/p/H0888001_S_10040260A",
       "has_3_stores": true,
@@ -1976,7 +1976,7 @@
   "stats": {
     "tracked": 66,
     "with_3_stores": 32,
-    "with_unit_price": 48,
+    "with_unit_price": 49,
     "missed_count": 0
   }
 }
