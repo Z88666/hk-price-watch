@@ -27,6 +27,7 @@ check("no 'daily update' claim (snapshot is 2026-11-09, not live)",
   html.indexOf("價係即時價") === -1);
 check("snapshot wording present in page copy",
   html.indexOf("快照日期為準") !== -1);
+check("change summary wording present", html.indexOf("較上次") !== -1);
 check("viewport meta present", html.indexOf("viewport") !== -1);
 var script = html.match(/<script>([\s\S]*?)<\/script>/g);
 var inline = script.filter(function (s) { return s.indexOf("src=") === -1; })
@@ -45,6 +46,34 @@ check("fallback.js carries same snapshot date",
   fbSrc.indexOf(snap.generated_at) !== -1);
 check("every item has HKTVmall price",
   snap.items.every(function (i) { return i.prices.hktvmall && i.prices.hktvmall.price > 0; }));
+/* --- price-change fields (scraper compares with the previous snapshot) --- */
+check("snapshot carries a prev_date",
+  typeof snap.prev_date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(snap.prev_date));
+var prevSnap = JSON.parse(fs.readFileSync(
+  path.join(ROOT, "history", "prices-" + snap.prev_date + ".json"), "utf8"));
+check("prev snapshot file matches prev_date", prevSnap.date === snap.prev_date);
+var prevById = {};
+prevSnap.items.forEach(function (i) { prevById[i.id] = i; });
+var changedItems = snap.items.filter(function (i) { return i.change != null && i.change !== 0; });
+var unchangedItems = snap.items.filter(function (i) { return i.change === 0; });
+var noDeltaItems = snap.items.filter(function (i) { return i.change == null; });
+check("change fields cover every item exactly once",
+  changedItems.length + unchangedItems.length + noDeltaItems.length === snap.items.length,
+  changedItems.length + " changed, " + unchangedItems.length + " same, " + noDeltaItems.length + " no delta");
+check("every non-null change matches cur minus prev_price",
+  snap.items.every(function (i) {
+    if (i.change == null) return true;
+    return Math.abs((i.prices.hktvmall.price - i.prev_price) - i.change) < 0.001;
+  }));
+check("no absurd jump (|change_pct| <= 100)",
+  snap.items.every(function (i) { return i.change_pct == null || Math.abs(i.change_pct) <= 100; }));
+check("no-delta items are only ones whose HKTVmall listing changed",
+  noDeltaItems.every(function (i) {
+    var old = prevById[i.id];
+    return !old || i.url !== old.url;
+  }), noDeltaItems.map(function (i) { return i.id; }).join(","));
+check("changed items kept the same listing URL",
+  changedItems.every(function (i) { return prevById[i.id] && i.url === prevById[i.id].url; }));
 check("no zero/negative prices",
   snap.items.every(function (i) {
     return Object.keys(i.prices).every(function (k) { return i.prices[k].price > 0; });
@@ -87,8 +116,14 @@ try {
     els.sourceNote.textContent.indexOf("快照") !== -1 &&
     els.sourceNote.textContent.indexOf("即時價") === -1);
   check("a real product name appears", rowsHtml.indexOf("香米") !== -1);
-  check("a real price appears", rowsHtml.indexOf("$72.80") !== -1 ||
-    /\$\d+\.\d{2}/.test(rowsHtml));
+  check("a real price appears",
+    rowsHtml.indexOf("$" + snap.items[0].prices.hktvmall.price.toFixed(2)) !== -1);
+  check("stats show change vs previous snapshot",
+    els.stats.innerHTML.indexOf("較上次") !== -1 &&
+    els.stats.innerHTML.indexOf(snap.prev_date) !== -1);
+  check("changed items show an arrow in their row",
+    changedItems.length === 0 ||
+    rowsHtml.indexOf("▲") !== -1 || rowsHtml.indexOf("▼") !== -1);
 } catch (e) {
   check("page script runs without error", false, String(e && e.stack || e));
 }
@@ -99,17 +134,19 @@ function extractFn(name) {
   return m ? m[0] : null;
 }
 var lib = extractFn("discountPct") + "\n" + extractFn("cheapestPrice") + "\n" +
+  extractFn("changeText") + "\n" +
   extractFn("sortItems") + "\n" +
   extractFn("basketTotals") + "\n" + extractFn("cheapestBasketStore") + "\n" +
   extractFn("cheapestStoreTally") + "\n" +
   extractFn("snapshotAgeDays") + "\n" + extractFn("snapshotNote") + "\n" +
   extractFn("dearestStore") + "\n" +
-  ";global.__hk = { discountPct: discountPct, cheapestPrice: cheapestPrice, sortItems: sortItems, " +
+  ";global.__hk = { discountPct: discountPct, cheapestPrice: cheapestPrice, changeText: changeText, sortItems: sortItems, " +
   "basketTotals: basketTotals, cheapestBasketStore: cheapestBasketStore, cheapestStoreTally: cheapestStoreTally, " +
   "snapshotAgeDays: snapshotAgeDays, snapshotNote: snapshotNote, dearestStore: dearestStore };\n";
 try {
   eval(lib);
   var discountPct = global.__hk.discountPct, cheapestPrice = global.__hk.cheapestPrice,
+    changeText = global.__hk.changeText,
     sortItems = global.__hk.sortItems,
     basketTotals = global.__hk.basketTotals,
     cheapestBasketStore = global.__hk.cheapestBasketStore,
@@ -118,6 +155,22 @@ try {
     snapshotNote = global.__hk.snapshotNote,
     dearestStore = global.__hk.dearestStore;
   /* --- 3rd polish: snapshot honesty helpers --- */
+  check("changeText rise shows ▲ with +pct",
+    changeText({ change: 5, change_pct: 10, prev_date: "2026-11-13" }) === "較 11-13 ▲ $5.00 (+10%)");
+  check("changeText fall shows ▼ without + sign",
+    changeText({ change: -15.1, change_pct: -27.5, prev_date: "2026-11-13" }) === "較 11-13 ▼ $15.10 (-27.5%)");
+  check("changeText null when price unchanged",
+    changeText({ change: 0, change_pct: 0, prev_date: "2026-11-13" }) === null);
+  check("changeText null when not comparable",
+    changeText({ change: null, prev_date: "2026-11-13" }) === null);
+  var changeSample = [
+    { id: "x", name_en: "X", change: -5 },
+    { id: "y", name_en: "Y", change: 10 },
+    { id: "z", name_en: "Z", change: null }
+  ];
+  var byChg = sortItems(changeSample, "change");
+  check("sort change: biggest rise first, nulls last",
+    byChg[0].id === "y" && byChg[1].id === "x" && byChg[2].id === "z");
   check("snapshotAgeDays same day = 0", snapshotAgeDays("2026-11-09", "2026-11-09") === 0);
   check("snapshotAgeDays 2 days later = 2", snapshotAgeDays("2026-11-09", "2026-11-11") === 2);
   check("snapshotAgeDays rejects impossible date 2026-02-30",
@@ -156,7 +209,7 @@ try {
     Math.abs(bt.cheapestTotal - riceCheapest) < 0.001 && Math.abs(bt.dearestTotal - riceDearest) < 0.001 &&
     bt.count === 1 && Math.abs(bt.saving - (riceDearest - riceCheapest)) < 0.001);
   check("basketTotals per-store sums include the item",
-    Math.abs(bt.perStore.hktvmall - 72.8) < 0.001 && bt.perStoreCount.wellcome === 1);
+    Math.abs(bt.perStore.hktvmall - rice.prices.hktvmall.price) < 0.001 && bt.perStoreCount.wellcome === 1);
   check("basketTotals empty basket = 0",
     basketTotals(snap.items, {}).count === 0);
   var tally = cheapestStoreTally(snap.items);
@@ -189,8 +242,9 @@ try {
 } catch (e) {
   check("pure functions extract + run", false, String(e && e.stack || e));
 }
-check("sort options include unit + savingPct",
-  html.indexOf('value="unit"') !== -1 && html.indexOf('value="savingPct"') !== -1);
+check("sort options include unit + savingPct + change",
+  html.indexOf('value="unit"') !== -1 && html.indexOf('value="savingPct"') !== -1 &&
+  html.indexOf('value="change"') !== -1);
 check("basket checkbox + basket bar present",
   html.indexOf('class="basket"') !== -1 && html.indexOf('id="basketBar"') !== -1);
 check("3-store + discount filters present",
