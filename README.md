@@ -1,8 +1,8 @@
 # HK Price Watch 香港超市比價
 
-**Which Hong Kong supermarket is cheapest today — HKTVmall vs PARKnSHOP vs Wellcome, in one table. Free, no login, no ads, updated daily.**
+**Which Hong Kong supermarket is cheapest — HKTVmall vs PARKnSHOP vs Wellcome, in one table. Free, no login, no ads. Prices are a dated snapshot (currently 2026-11-14), not live prices; the snapshot date is shown on the page.**
 
-**邊間超市最平,一次過睇晒:HKTVmall、百佳、惠康三間價錢對比,免費、免登入、每日更新。**
+**邊間超市最平,一次過睇晒:HKTVmall、百佳、惠康三間價錢對比,免費、免登入。價錢係有日期嘅快照 (而家係 2026-11-14),唔係即日價。**
 
 ## Live demo
 
@@ -19,6 +19,11 @@ from disk too (the snapshot is embedded as a fallback).
 - **Side-by-side prices** for HKTVmall / PARKnSHOP / Wellcome, cheapest store highlighted green
 - **Savings in HK$ and %** vs the dearest store, plus a Top 10 biggest-savings list
 - **Unit prices** (per kg / L / piece) on 53 of 66 items, so different pack sizes are comparable
+- **Price change vs the previous snapshot** — each item shows ▲/▼ against
+  the last run (HKTVmall price only), with a summary line (how many went up /
+  down / stayed), and a "加價最多先" sort. A change is only shown when the
+  same HKTVmall listing is compared (identical URL); if the scraper picked a
+  different listing, no change is shown rather than a bogus jump.
 - **Search** in Chinese or English, category filter, sort by saving / price / name
 - **Watchlist** — star items, saved in your browser (localStorage), nothing uploaded
 - **Price history** — every daily run is kept under `history/prices-YYYY-MM-DD.json`
@@ -45,7 +50,7 @@ What did **not** work, and why this approach was chosen:
 
 Caveats, stated plainly on the site too:
 
-- HKTVmall's price is its live price and often includes a promotion; the
+- HKTVmall's price is the price on the snapshot date and often includes a promotion; the
   rival prices are HKTVmall's recorded prices with a record date. If a
   saving looks unusually large, check the store — pack sizes can differ.
 - Only 29 of 66 items currently carry all three stores; the rest show
@@ -72,7 +77,10 @@ python3 -m http.server 8000               # open http://localhost:8000
 ```
 
 Daily refresh is automated by `.github/workflows/daily-scrape.yml`
-(09:00 HKT, commits the new snapshot). Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
+(09:00 HKT, commits the new snapshot). The snapshot checked into this repo
+is currently 2026-11-09 — if the workflow has not run since, the page says
+so plainly ("N 日前嘅快照") instead of pretending the prices are today's.
+Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 
 ## Project layout
 
@@ -100,7 +108,7 @@ the code is yours to reuse.
 ### 呢個係咩?
 
 香港超市價錢比較:一次過睇 HKTVmall、百佳、惠康三間價,邊間最平即刻知。
-免費、免登入、無廣告、每日更新。
+免費、免登入、無廣告。價錢以快照日期為準 (而家係 2026-11-09),唔係即日價。
 
 ### 點解有用?
 
@@ -117,7 +125,7 @@ HKTVmall 會記錄同一件貨喺百佳同惠康嘅價錢(`kaPriceList`,附記�
 
 ### 有咩限制?
 
-- HKTVmall 價係即時價,好多時含推廣;百佳/惠康價係 HKTVmall 記錄價,
+- HKTVmall 價係快照當日價,好多時含推廣;百佳/惠康價係 HKTVmall 記錄價,
   附記錄日期,包裝可能有出入,買之前請核實。
 - 66 樣入面有 29 樣齊三間價,其餘得 HKTVmall 加其中一間。
 - 價錢每日變,頁面有寫明數據日期。
@@ -126,3 +134,11 @@ HKTVmall 會記錄同一件貨喺百佳同惠康嘅價錢(`kaPriceList`,附記�
 
 開上面個網址就得,唔使裝嘢唔使登入。想自己跑爬蟲 / 每日自動更新,
 睇上面英文 "Run it yourself" 一節,得幾行命令。
+
+## What's new — 2026-11-10 polish
+
+- **Sort by unit price and by saving %** — compare different pack sizes fairly, or find the biggest percentage wins first. 每單位價錢同慳最多 % 排序,唔同包裝都比到。
+- **Shopping basket** — tick items and see the total if you buy everything at the cheapest store vs the dearest, plus what the same basket costs at each store — and which single store is cheapest for the whole basket. 剔起要買嘅嘢,即刻睇到買晒最平同最貴差幾多,同埋喺每間店各要幾多錢,仲會話你知成籃去邊間買最平。
+- **Discount badges** — HKTVmall items on sale show the real % off the original price (from the data's `original_price` field, nothing invented). 有折扣嘅貨會顯示真實減價 %。
+- **Filters** — only items with all 3 store prices, or only discounted items. 新增篩選:齊三間價 / 有折扣。
+- **Cheapest-store tally** — the stats bar now shows how often each store is cheapest (HKTVmall is cheapest on most items in this snapshot — the data says so, honestly). 統計列加咗每間店最平次數。
