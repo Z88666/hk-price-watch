@@ -78,7 +78,7 @@ python3 -m http.server 8000               # open http://localhost:8000
 
 Daily refresh is automated by `.github/workflows/daily-scrape.yml`
 (09:00 HKT, commits the new snapshot). The snapshot checked into this repo
-is currently 2026-11-09 — if the workflow has not run since, the page says
+is currently 2026-11-14 — if the workflow has not run since, the page says
 so plainly ("N 日前嘅快照") instead of pretending the prices are today's.
 Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 
@@ -86,7 +86,7 @@ Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 
 ```
 index.html                  static site (pure HTML/CSS/ES5, white bg, iOS 16 safe)
-data/prices.json            current snapshot (generated 2026-11-09, real data)
+data/prices.json            current snapshot (generated 2026-11-14, real data)
 data/fallback.js            same snapshot, embedded for file:// use
 history/prices-YYYY-MM-DD.json   daily snapshots
 scraper/scraper.py          the scraper (requests only)
@@ -108,7 +108,7 @@ the code is yours to reuse.
 ### 呢個係咩?
 
 香港超市價錢比較:一次過睇 HKTVmall、百佳、惠康三間價,邊間最平即刻知。
-免費、免登入、無廣告。價錢以快照日期為準 (而家係 2026-11-09),唔係即日價。
+免費、免登入、無廣告。價錢以快照日期為準 (而家係 2026-11-14),唔係即日價。
 
 ### 點解有用?
 
