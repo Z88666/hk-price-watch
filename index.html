@@ -45,6 +45,8 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
   margin: 8px 0; }
 .deal b.save { color: #0a7d0a; }
 .disc { color: #a00; font-size: 13px; font-weight: bold; }
+.up { color: #a00; font-size: 13px; font-weight: bold; }
+.down { color: #0a7d0a; font-size: 13px; font-weight: bold; }
 .basket { width: 20px; height: 20px; }
 .note { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
   padding: 10px 12px; font-size: 14px; color: #333; margin: 16px 0; }
@@ -68,6 +70,7 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
     <select id="sort" aria-label="排序">
       <option value="saving">慳最多先</option>
       <option value="savingPct">慳最多 % 先</option>
+      <option value="change">加價最多先</option>
       <option value="unit">每單位最平先</option>
       <option value="cheapest">最平價錢先</option>
       <option value="name">名稱 A–Z</option>
@@ -125,6 +128,17 @@ function discountPct(it) {
   if (!orig || !cur || orig <= cur) return null;
   return Math.round((orig - cur) / orig * 1000) / 10;
 }
+/* HKTVmall price change vs the previous snapshot (fields the scraper adds:
+   change / change_pct / prev_date). Null when the item cannot be compared
+   (a different listing was picked this run) or the price did not move.
+   Pure. */
+function changeText(it) {
+  if (!it || it.change == null || it.change === 0) return null;
+  var d = it.prev_date ? it.prev_date.slice(5) : "上次";
+  var arrow = it.change > 0 ? "▲" : "▼";
+  var pct = it.change_pct == null ? "" : " (" + (it.change > 0 ? "+" : "") + it.change_pct + "%)";
+  return "較 " + d + " " + arrow + " $" + Math.abs(it.change).toFixed(2) + pct;
+}
 function cheapestPrice(it) {
   if (!it || !it.prices) return null;
   var p = it.cheapest && it.prices[it.cheapest];
@@ -139,6 +153,7 @@ function sortItems(items, sort) {
   function numField(it, f, missing) { var v = it[f]; return (v == null || isNaN(v)) ? missing : v; }
   if (sort === "saving") arr.sort(function (a, b) { return numField(b, "saving_vs_dearest", -1e9) - numField(a, "saving_vs_dearest", -1e9); });
   else if (sort === "savingPct") arr.sort(function (a, b) { return numField(b, "saving_pct", -1e9) - numField(a, "saving_pct", -1e9); });
+  else if (sort === "change") arr.sort(function (a, b) { return numField(b, "change", -1e9) - numField(a, "change", -1e9); });
   else if (sort === "unit") arr.sort(function (a, b) {
     var ua = a.unit_price == null ? 1e9 : a.unit_price;
     var ub = b.unit_price == null ? 1e9 : b.unit_price;
@@ -280,13 +295,16 @@ function render() {
     var disc = discountPct(it);
     var discHtml = disc != null
       ? '<br><span class="disc">HKTVmall 減 ' + disc + "% (原價 $" + it.original_price.toFixed(2) + ")</span>" : "";
+    var chg = changeText(it);
+    var chgHtml = chg
+      ? '<br><span class="' + (it.change > 0 ? "up" : "down") + '">' + esc(chg) + "</span>" : "";
     html += "<tr><td><button class=\"star" + (watch[it.id] ? " on" : "") +
       "\" data-id=\"" + esc(it.id) + "\" title=\"關注\">" + (watch[it.id] ? "★" : "☆") + "</button>" +
       '<br><input type="checkbox" class="basket" data-id="' + esc(it.id) + '" title="加入購物籃"' +
       (basket[it.id] ? " checked" : "") + "></td>" +
       "<td><span class=\"name\">" + esc(it.name_zh) + "</span> " + esc(it.name_en) +
       "<br><span class=\"meta\">" + esc(it.product_name_zh || it.product_name_en) +
-      (it.pack ? " · " + esc(it.pack) : "") + (it.brand ? " · " + esc(it.brand) : "") + "</span>" + save + discHtml + "</td>" +
+      (it.pack ? " · " + esc(it.pack) : "") + (it.brand ? " · " + esc(it.brand) : "") + "</span>" + save + discHtml + chgHtml + "</td>" +
       priceCell(it, "hktvmall") + priceCell(it, "parknshop") + priceCell(it, "wellcome") +
       '<td class="price hide-sm">' + unit + "</td></tr>";
   });
@@ -359,11 +377,22 @@ function renderStats() {
   var tally = cheapestStoreTally(DATA.items);
   var discCount = 0, di;
   for (di = 0; di < DATA.items.length; di++) if (discountPct(DATA.items[di]) != null) discCount++;
+  var up = 0, down = 0, same = 0, ci;
+  for (ci = 0; ci < DATA.items.length; ci++) {
+    if (DATA.items[ci].change == null) continue;
+    if (DATA.items[ci].change > 0) up++;
+    else if (DATA.items[ci].change < 0) down++;
+    else same++;
+  }
+  var chgStat = DATA.prev_date
+    ? '<div class="stat">較上次 (' + esc(DATA.prev_date) + "): <b style=\"color:#a00\">" + up +
+      "</b> 件加價 · <b style=\"color:#0a7d0a\">" + down + "</b> 件減價 · " + same + " 件不變</div>"
+    : "";
   document.getElementById("stats").innerHTML =
     '<div class="stat"><b>' + s.tracked + '</b> 項貨品</div>' +
     '<div class="stat"><b>' + s.with_3_stores + '</b> 項有齊三間價</div>' +
     '<div class="stat"><b>' + s.with_unit_price + '</b> 項有每單位價</div>' +
-    '<div class="stat"><b>' + discCount + '</b> 項有折扣</div>' +
+    '<div class="stat"><b>' + discCount + '</b> 項有折扣</div>' + chgStat +
     '<div class="stat">最平次數: HKTVmall <b>' + tally.hktvmall + '</b> · 百佳 <b>' +
     tally.parknshop + '</b> · 惠康 <b>' + tally.wellcome + '</b></div>' +
     '<div class="stat">更新: <b>' + esc(DATA.date) + "</b></div>";
