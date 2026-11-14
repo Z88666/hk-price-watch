@@ -223,6 +223,43 @@ def pick_hit(hits, query):
     return pool[0]
 
 
+def attach_changes(items, prev):
+    """Compare each item's HKTVmall price with the previous snapshot.
+
+    Only when the same product id points at the same HKTVmall listing
+    (identical URL) in both snapshots — the scraper sometimes picks a
+    different listing for the same query (e.g. a laundry soap for a
+    cooking-oil query on 2026-11-09), and comparing across different
+    products would print a bogus jump. Adds prev_price / prev_date /
+    change / change_pct, or leaves them null when not comparable.
+    Returns the previous snapshot's date (or None).
+    """
+    if not prev or not prev.get("items"):
+        return None
+    prev_by_id = {}
+    for old in prev["items"]:
+        prev_by_id[old["id"]] = old
+    prev_date = prev.get("date")
+    for it in items:
+        it["prev_price"] = None
+        it["prev_date"] = prev_date
+        it["change"] = None
+        it["change_pct"] = None
+        old = prev_by_id.get(it["id"])
+        if not old:
+            continue
+        if not it.get("url") or it["url"] != old.get("url"):
+            continue
+        cur = (it.get("prices") or {}).get("hktvmall", {}).get("price")
+        prev_p = (old.get("prices") or {}).get("hktvmall", {}).get("price")
+        if cur is None or prev_p is None or prev_p <= 0:
+            continue
+        it["prev_price"] = prev_p
+        it["change"] = round(cur - prev_p, 2)
+        it["change_pct"] = round(100 * (cur - prev_p) / prev_p, 1)
+    return prev_date
+
+
 def build_item(product, hit):
     """Normalise one Algolia hit into our prices.json item schema."""
     hktv = float(hit["sellingPrice"])
@@ -311,10 +348,22 @@ def run(out_dir=None, live_test=False):
 
     today = date.today().isoformat()
     three_store = sum(1 for i in items if i["has_3_stores"])
+    # Change vs the previous snapshot: read data/prices.json BEFORE it is
+    # overwritten below. On the first run there is no previous file.
+    prev = None
+    prev_path = os.path.join(data_dir, "prices.json")
+    if os.path.exists(prev_path):
+        try:
+            with open(prev_path, encoding="utf-8") as f:
+                prev = json.load(f)
+        except Exception as exc:  # noqa: BLE001
+            print("  previous snapshot unreadable (%s), no change data" % exc)
+    prev_date = attach_changes(items, prev)
     snapshot = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S+08:00",
                                       time.localtime()),
         "date": today,
+        "prev_date": prev_date,
         "source": "HKTVmall public search API (Algolia) — prices as listed on "
                   "hktvmall.com; PARKnSHOP / Wellcome prices are HKTVmall's "
                   "own recorded competitor prices (kaPriceList) with record "
@@ -345,8 +394,12 @@ def run(out_dir=None, live_test=False):
         json.dump(snapshot, f, ensure_ascii=False)
         f.write(";\n")
 
+    ups = sum(1 for i in items if i["change"] is not None and i["change"] > 0)
+    downs = sum(1 for i in items if i["change"] is not None and i["change"] < 0)
     print("OK: %d items, %d with 3 stores, %d missed"
           % (len(items), three_store, len(missed)))
+    print("change vs %s: %d up, %d down"
+          % (prev_date, ups, downs))
     if missed:
         print("missed: %s" % ", ".join(missed))
     return snapshot

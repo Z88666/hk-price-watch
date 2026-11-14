@@ -25,6 +25,13 @@ python3 scraper.py --live-test    # one query, prints the raw Algolia hit
    dropped, not displayed.
 5. Write `data/prices.json`, `data/fallback.js` (embedded snapshot for
    file:// use) and `history/prices-YYYY-MM-DD.json`.
+6. Price change: before overwriting `data/prices.json`, the previous
+   snapshot is read and each item gets `prev_price` / `prev_date` /
+   `change` / `change_pct` (HKTVmall price only) — but only when the
+   same HKTVmall listing is compared (identical URL). If the scraper
+   picked a different listing for the same query, the change fields
+   stay null: a missing change is honest, a wrong one is not. The
+   snapshot also carries top-level `prev_date`.
 
 ## Add / change items
 
