@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-14T01:15:52+08:00",
-  "date": "2026-11-14",
-  "prev_date": "2026-11-13",
+  "generated_at": "2026-11-15T01:19:56+08:00",
+  "date": "2026-11-15",
+  "prev_date": "2026-11-14",
   "source": "HKTVmall public search API (Algolia) — prices as listed on hktvmall.com; PARKnSHOP / Wellcome prices are HKTVmall's own recorded competitor prices (kaPriceList) with record dates, not scraped from those stores directly.",
   "currency": "HKD",
   "stores": {
@@ -43,7 +43,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 72.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -72,7 +72,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 39.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -109,7 +109,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 34.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -138,7 +138,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 80.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -175,7 +175,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 89.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -211,10 +211,10 @@
       "url": "https://www.hktvmall.com/hktv/en/main/HOP-HING-OILS-%26-FATS-%28HONG-KONG%29-LIMITED-Flagship-Store/s/H1261001/Supermarket/Supermarket/Rice-%26-Cooking-Oil/Cooking-Oil/Corn-%26-Peanut-Oil/Extra-Virgin-Peanut-Oil/p/H0888001_S_10015066",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": null,
-      "prev_date": "2026-11-13",
-      "change": null,
-      "change_pct": null
+      "prev_price": 109.8,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "flour",
@@ -249,7 +249,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 34.5,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -278,7 +278,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 43.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -307,7 +307,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 39.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -344,7 +344,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 37.7,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -373,7 +373,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 29.5,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -406,7 +406,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 16.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -443,7 +443,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 28.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -472,7 +472,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 24.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -501,7 +501,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 48.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -509,30 +509,30 @@
       "id": "milk-fresh-1l",
       "name_zh": "鮮奶 1公升",
       "name_en": "Fresh Milk 1L",
-      "product_name_zh": "澳洲 哈維 無乳糖全脂牛奶 Harvey Fresh Lactose Free Full Cream Milk (保鮮裝) - 原箱 1公升 [到期日: 2027年01月21日]",
-      "product_name_en": "Harvey Fresh Lactose Free Full Cream Milk (Fresh Pack) - Full Case 1L (Expiry Date: 21,Jan,2027)",
+      "product_name_zh": "澳洲 哈維 無乳糖脫脂牛奶 Harvey Fresh Lactose Free Skim Milk (保鮮裝) - 原箱 1公升 (新舊包裝隨機發送)",
+      "product_name_en": "Harvey Fresh Lactose Free Skim Milk(Fresh Pack) - Full Case 1L (Random Packing)",
       "category": "eggs-dairy",
       "brand": "HARVEY FRESH",
       "store": "Tenth Online Store",
       "pack": "12x1L",
-      "unit_price": 23.9,
+      "unit_price": 26.67,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 286.8
+          "price": 320.0
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
       "original_price": 388.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Tenth-Online-Store/s/H1272001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/Harvey-Fresh-Lactose-Free-Full-Cream-Milk-Fresh-Pack-Full-Case-1L-Expiry-Date-21Jan2027-/p/H8260001_S_50001144",
+      "url": "https://www.hktvmall.com/hktv/en/main/Tenth-Online-Store/s/H8260001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/Harvey-Fresh-Lactose-Free-Skim-MilkFresh-Pack-Full-Case-1L-Random-Packing/p/H8260001_S_50001145",
       "has_3_stores": false,
       "in_stock": true,
-      "prev_price": 286.8,
-      "prev_date": "2026-11-13",
-      "change": 0.0,
-      "change_pct": 0.0
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "milk-uht-1l",
@@ -563,7 +563,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 18.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -600,7 +600,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 22.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -608,38 +608,38 @@
       "id": "milk-oat",
       "name_zh": "燕麥奶",
       "name_en": "Oat Milk",
-      "product_name_zh": "OATSIDE 職人燕麥植物奶 1公升｜澳洲頂級燕麥｜早餐奶｜植物蛋白飲料｜0乳糖 平行進口",
-      "product_name_en": "OATSIDE Barista Oat Milk 1L  | Australian Oats | Lactose & Cholesterol Free Parallel Import",
+      "product_name_zh": "專業沖調用燕麥奶1公升 (澳洲) (咖啡沖調專業用)",
+      "product_name_en": "BARISTA’S CHOICE by Vitasoy Oat Milk 1L",
       "category": "eggs-dairy",
-      "brand": "OATSIDE",
-      "store": "EURO-ASIA STORE",
-      "pack": "1 L",
-      "unit_price": 23.8,
+      "brand": "Vitasoy",
+      "store": "VITASOY / VITA",
+      "pack": "1000ml",
+      "unit_price": 26.9,
       "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 23.8
+          "price": 26.9
         },
         "parknshop": {
-          "price": 36.0,
+          "price": 38.0,
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 25.0,
+          "price": 27.0,
           "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 12.2,
-      "saving_pct": 33.9,
-      "original_price": 60.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/EURO-ASIA-STORE/s/B1007001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/OATSIDE-Barista-Oat-Milk-1L-Australian-Oats-Lactose-Cholesterol-Free-Parallel-Import/p/B1007001_S_150079DA",
+      "saving_vs_dearest": 11.1,
+      "saving_pct": 29.2,
+      "original_price": 32.89,
+      "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Milk-%26-Soy-Milk/BARISTAS-CHOICE-by-Vitasoy-Oat-Milk-1L/p/H0888001_S_10138363",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": 23.8,
-      "prev_date": "2026-11-13",
-      "change": 0.0,
-      "change_pct": 0.0
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "butter",
@@ -669,10 +669,10 @@
       "url": "https://www.hktvmall.com/hktv/en/main/DCH-Living/s/H0696023/Supermarket/Supermarket/Chilled-Frozen-Food/Dairy-Products/Butter/Spreadable-Butter-250g-Chilled-04C/p/H0888001_S_10149850",
       "has_3_stores": false,
       "in_stock": true,
-      "prev_price": 54.9,
-      "prev_date": "2026-11-13",
-      "change": -15.1,
-      "change_pct": -27.5
+      "prev_price": 39.8,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "cheese-sliced",
@@ -699,7 +699,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 26.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -707,36 +707,36 @@
       "id": "yogurt",
       "name_zh": "乳酪",
       "name_en": "Yogurt",
-      "product_name_zh": "原味乳酪 (4杯裝) (冷凍0-4°C)",
-      "product_name_en": "Sweetened Yogurt (4pcs)(Chilled)",
+      "product_name_zh": "純‧凝酪  (4杯裝) (冷凍)【最佳食用期限不少於3天】",
+      "product_name_en": "Spoona Yogurt (Chill)【Not less than 3 days for best consumption】",
       "category": "eggs-dairy",
-      "brand": "MÖVENPICK",
-      "store": "THE FOODIES",
-      "pack": "100g x 4",
-      "unit_price": 89.75,
-      "unit_price_unit": "per kg",
+      "brand": "Trappist Dairy",
+      "store": "Trappist Dairy",
+      "pack": "",
+      "unit_price": null,
+      "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 35.9
+          "price": 29.9
         },
         "parknshop": {
-          "price": 38.0,
+          "price": 30.0,
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 36.0,
-          "record_date": "12/11/2026"
+          "price": 30.0,
+          "record_date": "11/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 2.1,
-      "saving_pct": 5.5,
-      "original_price": 62.4,
-      "url": "https://www.hktvmall.com/hktv/en/main/THE-FOODIES/s/H1111001/Supermarket/Supermarket/Chilled-Frozen-Food/Dairy-Products/Yoghurt/Sweetened-Yogurt-4pcsChilled/p/H0888001_S_10145168C",
+      "saving_vs_dearest": 0.1,
+      "saving_pct": 0.3,
+      "original_price": 44.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/Trappist-Dairy/s/H1219001/Supermarket/Supermarket/Chilled-Frozen-Food/Dairy-Products/Yoghurt/Spoona-Yogurt-ChillNot-less-than-3-days-for-best-consumption/p/H1115001_S_10140143C",
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": null,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": null,
       "change_pct": null
     },
@@ -765,7 +765,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 29.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -794,7 +794,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 18.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -822,10 +822,10 @@
       "url": "https://www.hktvmall.com/hktv/en/main/Low-Sugar-Mission-Keto-Diet-Store/s/H9465001/Supermarket/Supermarket/Seasoning/Flour-%26-Pancake-Mix/Vital-Wheat-Gluten-Flour-7080-protein-567g/p/H9465001_S_BobsRedMill_VitalWheat_GlutenFlour",
       "has_3_stores": false,
       "in_stock": true,
-      "prev_price": null,
-      "prev_date": "2026-11-13",
-      "change": null,
-      "change_pct": null
+      "prev_price": 92.8,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "noodles-instant",
@@ -856,7 +856,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 24.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -889,7 +889,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 25.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -926,7 +926,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 107.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -963,7 +963,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 41.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -996,7 +996,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 14.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1033,7 +1033,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 9.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1062,7 +1062,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 13.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1099,7 +1099,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 29.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1136,7 +1136,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 22.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1173,7 +1173,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 23.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1210,7 +1210,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 21.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1247,7 +1247,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 17.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1276,7 +1276,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 69.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1308,10 +1308,10 @@
       "url": "https://www.hktvmall.com/hktv/en/main/SAM-LUNG-Store/s/H8074001/Supermarket/Supermarket/Snacks-%26-Desserts/Candy/Marshmallow/Japan-Strawberry-Jam-Marshmallow-80g-Use-by-202761/p/H8074001_S_JP0139",
       "has_3_stores": false,
       "in_stock": true,
-      "prev_price": null,
-      "prev_date": "2026-11-13",
-      "change": null,
-      "change_pct": null
+      "prev_price": 15.5,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "honey",
@@ -1338,7 +1338,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 146.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1346,28 +1346,28 @@
       "id": "vinegar",
       "name_zh": "醋",
       "name_en": "Vinegar",
-      "product_name_zh": "燒脂排毒天然蘋果醋 (500 毫克) 240 粒 WN5054/3986 [平行進口]",
-      "product_name_en": "Apple Cider Vinegar (500 mg) 240 capsules WN5054/3986 [Parallel Goods]",
+      "product_name_zh": "[美國進口] 有機蘋果醋 32oz 946ml #有機 #溝梳打 #溝汽水 #醋 #沉澱物乃釀造醋的自然現象 #飲用前請先搖勻",
+      "product_name_en": "[Direct from USA] Organic Apple Cider Vinegar 32oz 946ml",
       "category": "sauces",
-      "brand": "webber naturals",
-      "store": "Health Express",
-      "pack": "",
-      "unit_price": null,
-      "unit_price_unit": null,
+      "brand": "BRAGG",
+      "store": "UK Store by HKTVmall",
+      "pack": "946ml",
+      "unit_price": 72.94,
+      "unit_price_unit": "per L",
       "prices": {
         "hktvmall": {
-          "price": 138.0
+          "price": 69.0
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 0.0,
       "saving_pct": 0.0,
-      "original_price": 368.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Health-Express/s/H5096001/Personal-Care-%26-Health/Personal-Care-%26-Health/Health/Slimming-%26-Fitness/Slimming-Capsule/Apple-Cider-Vinegar-500-mg-240-capsules-WN50543986-Parallel-Goods/p/H5096001_S_10208379",
+      "original_price": 89.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/UK-Street/s/H3550001/Supermarket/Supermarket/Organic-%26-Health-Food/Honey-Vinegar/Direct-from-USA-Organic-Apple-Cider-Vinegar-32oz-946ml/p/H0888001_S_10146667",
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": null,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": null,
       "change_pct": null
     },
@@ -1400,7 +1400,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 48.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1437,7 +1437,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 45.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1469,10 +1469,10 @@
       "url": "https://www.hktvmall.com/hktv/en/main/VITASOY/s/H1077001/Supermarket/Supermarket/Beverages/Soft-Drinks/Vita-Sparkling-Apple-Green-Tea-Drink-310ML-6-CAN/p/H0888001_S_10157716",
       "has_3_stores": false,
       "in_stock": true,
-      "prev_price": null,
-      "prev_date": "2026-11-13",
-      "change": null,
-      "change_pct": null
+      "prev_price": 17.9,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "drink-tea-bags",
@@ -1506,45 +1506,41 @@
       "url": "https://www.hktvmall.com/hktv/en/main/THE-MARKET/s/H0888001/Supermarket/Supermarket/Beverages/Tea-Bags-Leaves/Black-Tea/Premium-Ceylon-Tea-Bag/p/H0888001_S_10015374",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": null,
-      "prev_date": "2026-11-13",
-      "change": null,
-      "change_pct": null
+      "prev_price": 44.9,
+      "prev_date": "2026-11-14",
+      "change": 0.0,
+      "change_pct": 0.0
     },
     {
       "id": "drink-coffee",
       "name_zh": "即溶咖啡",
       "name_en": "Instant Coffee",
-      "product_name_zh": "Starbucks Mocha 朱古力咖啡即溶咖啡  新舊包裝隨機 [C30]",
-      "product_name_en": "Caffè Mocha Premium Instant Coffees (4sticks) Randomly Delivery [C30]",
+      "product_name_zh": "(BBD:29/08/2027) 99% SF即溶焦糖拿铁咖啡16g x 10 (0247)",
+      "product_name_en": "(BBD:29/08/2027) 99% SF Caramel Latte Instant Coffee Mix 16g x 10 (0247)",
       "category": "drinks",
-      "brand": "星巴克",
-      "store": "about Mart",
-      "pack": "1 box x  4 Sticks",
+      "brand": "AVALANCHE",
+      "store": "NZ Supreme",
+      "pack": "",
       "unit_price": null,
       "unit_price_unit": null,
       "prices": {
         "hktvmall": {
-          "price": 25.9
+          "price": 56.0
         },
         "parknshop": {
-          "price": 32.0,
-          "record_date": "13/11/2026"
-        },
-        "wellcome": {
-          "price": 25.9,
+          "price": 56.0,
           "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 6.1,
-      "saving_pct": 19.1,
-      "original_price": 39.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/about-Mart/s/H9140001/Supermarket/Supermarket/Beverages/Instant-Coffee-Milk-Tea/Instant-Coffee/Caff%C3%A8-Mocha-Premium-Instant-Coffees-4sticks-Randomly-Delivery-C30-/p/H9140001_S_SB_7613038631189",
-      "has_3_stores": true,
+      "saving_vs_dearest": 0.0,
+      "saving_pct": 0.0,
+      "original_price": 59.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/NZ-Supreme/s/S2114001/Supermarket/Supermarket/Beverages/Instant-Coffee-Milk-Tea/Instant-Coffee/BBD29082027-99-SF-Caramel-Latte-Instant-Coffee-Mix-16g-x-10-0247/p/S2114001_S_ACSFCM01",
+      "has_3_stores": false,
       "in_stock": true,
       "prev_price": null,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": null,
       "change_pct": null
     },
@@ -1581,7 +1577,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 79.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1589,8 +1585,8 @@
       "id": "drink-sports",
       "name_zh": "運動飲品",
       "name_en": "Sports Drink",
-      "product_name_zh": "運動飲品 橙味 600mL [平行進口] BBF:2027-7-13 #90268",
-      "product_name_en": "Gatorade Sports Drink Orange Flavour 600mL [Parallel Import] BBF: 2027-7-13 #90268",
+      "product_name_zh": "運動飲品 檸檬味 600mL [平行進口] BBF: 2027-7-12 #90169",
+      "product_name_en": "Gatorade Sports Drink Lemon Flavor 600mL [Parallel Import] BBF: 2027-7-12 #90169",
       "category": "drinks",
       "brand": "Gatorade",
       "store": "Living With Vanus",
@@ -1603,24 +1599,24 @@
         },
         "parknshop": {
           "price": 12.9,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         },
         "wellcome": {
           "price": 10.0,
-          "record_date": "12/11/2026"
+          "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
       "saving_vs_dearest": 6.1,
       "saving_pct": 47.3,
       "original_price": 9.5,
-      "url": "https://www.hktvmall.com/hktv/en/main/Living-With-Vanus/s/H9340001/Supermarket/Supermarket/Beverages/Energy-Drinks/Gatorade-Sports-Drink-Orange-Flavour-600mL-Parallel-Import-BBF-2027713-90268-/p/H9340001_S_67373",
+      "url": "https://www.hktvmall.com/hktv/en/main/Living-With-Vanus/s/H9340001/Supermarket/Supermarket/Beverages/Energy-Drinks/Gatorade-Sports-Drink-Lemon-Flavor-600mL-Parallel-Import-BBF-2027712-90169/p/H9340001_S_67375",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": 6.8,
-      "prev_date": "2026-11-13",
-      "change": 0.0,
-      "change_pct": 0.0
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "drink-soy",
@@ -1647,7 +1643,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 12.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1684,7 +1680,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 21.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1721,7 +1717,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 25.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1758,7 +1754,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 47.4,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1766,38 +1762,34 @@
       "id": "snack-nuts",
       "name_zh": "果仁",
       "name_en": "Mixed Nuts",
-      "product_name_zh": "少鹽焗雜果仁 150g (少鹽, 非油炸, 不含防腐劑, 高抗氧化) BBD:2028/02/15",
-      "product_name_en": "Premium Dry Roasted & Light Salted Mixed Nuts 150g (No oil added, Light Salted, No Preservatives)",
+      "product_name_zh": "Kirkland 無調味綜合堅果袋裝 1.13kg 科克蘭原味清香零添加 無防腐劑 【平行進口】",
+      "product_name_en": "Kirkland Unflavored Mixed Nuts in Bag, 1.13kg – Original Flavor, Light and Fresh, No Additives,",
       "category": "snacks",
-      "brand": "Sunkist™",
-      "store": "MANGO STORE",
-      "pack": "150g",
-      "unit_price": 273.33,
+      "brand": "Kirkland",
+      "store": "AJK日美韓精品の清貨倉",
+      "pack": "零添加 無調味綜合堅果袋 1.13kg",
+      "unit_price": 199.12,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 41.0
+          "price": 225.0
         },
         "parknshop": {
-          "price": 53.0,
-          "record_date": "12/11/2026"
-        },
-        "wellcome": {
-          "price": 45.9,
+          "price": 225.0,
           "record_date": "13/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 12.0,
-      "saving_pct": 22.6,
-      "original_price": 80.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/MANGO-STORE/s/H9676001/Supermarket/Supermarket/Snacks-%26-Desserts/Peanuts-%26-Nuts/Nuts/Premium-Dry-Roasted-Light-Salted-Mixed-Nuts-150g-No-oil-added-Light-Salted-No-Preservatives/p/H9676001_S_F037-000003",
-      "has_3_stores": true,
+      "saving_vs_dearest": 0.0,
+      "saving_pct": 0.0,
+      "original_price": 250.0,
+      "url": "https://www.hktvmall.com/hktv/en/main/AJK%E6%97%A5%E7%BE%8E%E9%9F%93%E7%B2%BE%E5%93%81%E3%81%AE%E6%B8%85%E8%B2%A8%E5%80%89/s/B2053001/Supermarket/Supermarket/Snacks-%26-Desserts/Peanuts-%26-Nuts/Nuts/Kirkland-Unflavored-Mixed-Nuts-in-Bag-113kg-Original-Flavor-Light-and-Fresh-No-Additives/p/B2053001_S_LYCSKU30000009",
+      "has_3_stores": false,
       "in_stock": true,
-      "prev_price": 41.0,
-      "prev_date": "2026-11-13",
-      "change": 0.0,
-      "change_pct": 0.0
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "frozen-dumplings",
@@ -1832,7 +1824,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 16.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1861,7 +1853,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 624.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1894,7 +1886,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 68.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1931,7 +1923,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 58.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -1968,7 +1960,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 31.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2001,7 +1993,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 27.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2034,7 +2026,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 26.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2063,7 +2055,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 33.8,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2092,7 +2084,7 @@
       "has_3_stores": false,
       "in_stock": true,
       "prev_price": 138.0,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2100,75 +2092,75 @@
       "id": "care-shower-gel",
       "name_zh": "沐浴露",
       "name_en": "Shower Gel",
-      "product_name_zh": "[優惠孖裝] Skin Relief天然燕麥高效舒緩沐浴露1公升 [原裝行貨]  #極乾及敏感肌膚 #舒緩皮膚敏感 #皮膚痕癢泛紅乾燥 #溫和潔膚 #三重燕麥精華(燕麥膠 燕麥油 燕麥精粹)",
-      "product_name_en": "[Twin Pack] Skin Relief Body Wash 1L (Random Delivery)",
+      "product_name_zh": "[3件優惠裝] proskin 深層滋潤沐浴乳霜(白茶花與溫泉礦物) 950g x 3支 | 沐浴露 沖涼液 (新舊包裝隨機發送)",
+      "product_name_en": "[3-pack Combo] proskin Moisturising Body Wash (White Camellia and Onsen minerals) 950g (Random Deliv",
       "category": "personal-care",
-      "brand": "Aveeno",
-      "store": "Kenvue (Johnson & Johnson Consumer HK Ltd)",
-      "pack": "1000ml x2",
-      "unit_price": 108.95,
-      "unit_price_unit": "per L",
+      "brand": "Dettol",
+      "store": "Dettol Store Official",
+      "pack": "950g  x3",
+      "unit_price": 41.05,
+      "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 217.9
+          "price": 117.0
         },
         "parknshop": {
-          "price": 219.8,
+          "price": 146.9,
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 218.0,
+          "price": 147.0,
           "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 1.9,
-      "saving_pct": 0.9,
-      "original_price": 378.0,
-      "url": "https://www.hktvmall.com/hktv/en/main/Johnson-%26-Johnson/s/H0526001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Body-Care/Body-Wash/Twin-Pack-Skin-Relief-Body-Wash-1L-Random-Delivery/p/H0888001_S_10040260A",
+      "saving_vs_dearest": 30.0,
+      "saving_pct": 20.4,
+      "original_price": 269.7,
+      "url": "https://www.hktvmall.com/hktv/en/main/Dettol/s/H1010002/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Body-Care/Body-Wash/3pack-Combo-proskin-Moisturising-Body-Wash-White-Camellia-and-Onsen-minerals-950g-Random-Deliv/p/H0888001_S_10159005B",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": 337.9,
-      "prev_date": "2026-11-13",
-      "change": -120.0,
-      "change_pct": -35.5
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "care-toothpaste",
       "name_zh": "牙膏",
       "name_en": "Toothpaste",
-      "product_name_zh": "[優惠孖裝] MIRACLE REPAIR奇績修護煥齦 舒緩牙齦不適 預防敏感牙齒 緊緻牙肉 解決牙肉萎縮氨基酸牙膏 (清香茉莉花茶味)",
-      "product_name_en": "[Twin Packs] Miracle Repair Gum Repair Toothpaste (Jasmine)",
+      "product_name_zh": "清涼薄荷配方牙膏 3支裝(敏感牙齒適用 抗敏牙膏 口腔清新 24小時抗敏保護) (新舊包裝隨機發送)",
+      "product_name_en": "Fresh Mint Toothpaste 3s (Random Delivery)",
       "category": "personal-care",
-      "brand": "高露潔",
-      "store": "【Colgate-Palmolive Flagship Store】",
-      "pack": "90g x2",
-      "unit_price": 549.44,
+      "brand": "SENSODYNE",
+      "store": "Haleon Flagship Store",
+      "pack": "120g x 3",
+      "unit_price": 210.56,
       "unit_price_unit": "per kg",
       "prices": {
         "hktvmall": {
-          "price": 98.9
+          "price": 75.8
         },
         "parknshop": {
-          "price": 139.8,
+          "price": 75.9,
           "record_date": "12/11/2026"
         },
         "wellcome": {
-          "price": 99.8,
+          "price": 76.0,
           "record_date": "12/11/2026"
         }
       },
       "cheapest": "hktvmall",
-      "saving_vs_dearest": 40.9,
-      "saving_pct": 29.3,
-      "original_price": 199.8,
-      "url": "https://www.hktvmall.com/hktv/en/main/Colgate-%28Hong-Kong%29/s/H1022001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Dental-Care/Toothpaste/Gum-Health-Toothpaste/Twin-Packs-Miracle-Repair-Gum-Repair-Toothpaste-Jasmine/p/H0888001_S_10138088A",
+      "saving_vs_dearest": 0.2,
+      "saving_pct": 0.3,
+      "original_price": 83.9,
+      "url": "https://www.hktvmall.com/hktv/en/main/Haleon/s/H1139001/Personal-Care-%26-Health/Personal-Care-%26-Health/Personal-Care/Dental-Care/Toothpaste/Sensitive-Toothpaste/Fresh-Mint-Toothpaste-3s-Random-Delivery/p/H0888001_S_10004218",
       "has_3_stores": true,
       "in_stock": true,
-      "prev_price": 98.9,
-      "prev_date": "2026-11-13",
-      "change": 0.0,
-      "change_pct": 0.0
+      "prev_price": null,
+      "prev_date": "2026-11-14",
+      "change": null,
+      "change_pct": null
     },
     {
       "id": "care-hand-wash",
@@ -2203,7 +2195,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 79.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     },
@@ -2240,7 +2232,7 @@
       "has_3_stores": true,
       "in_stock": true,
       "prev_price": 55.9,
-      "prev_date": "2026-11-13",
+      "prev_date": "2026-11-14",
       "change": 0.0,
       "change_pct": 0.0
     }
@@ -2248,7 +2240,7 @@
   "missed": [],
   "stats": {
     "tracked": 66,
-    "with_3_stores": 34,
+    "with_3_stores": 32,
     "with_unit_price": 48,
     "missed_count": 0
   }
