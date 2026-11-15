@@ -66,7 +66,7 @@ HEADERS = {
 def fetch_algolia_key(session):
     """Read the public Algolia search key from HKTVmall's search page."""
     try:
-        r = session.get(SEARCH_PAGE, timeout=20)
+        r = session.get(SEARCH_PAGE, timeout=180)
         r.raise_for_status()
         m = re.search(r"algoliasearch\('([A-Z0-9]+)',\s*'([0-9a-f]+)'", r.text)
         if m:
@@ -345,6 +345,13 @@ def run(out_dir=None, live_test=False):
                 continue
             items.append(build_item(product, hit))
         time.sleep(0.5)
+
+    # Never clobber good data with an empty run: if every batch failed
+    # (e.g. a transient Algolia 403), keep yesterday's snapshot untouched.
+    if not items:
+        print("ABORT: 0 items fetched (%d missed) — leaving data/ untouched"
+              % len(missed))
+        raise SystemExit(1)
 
     today = date.today().isoformat()
     three_store = sum(1 for i in items if i["has_3_stores"])
