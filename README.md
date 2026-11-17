@@ -1,8 +1,8 @@
 # HK Price Watch 香港超市比價
 
-**Which Hong Kong supermarket is cheapest — HKTVmall vs PARKnSHOP vs Wellcome, in one table. Free, no login, no ads. Prices are a dated snapshot (currently 2026-11-14), not live prices; the snapshot date is shown on the page.**
+**Which Hong Kong supermarket is cheapest — HKTVmall vs PARKnSHOP vs Wellcome, in one table. Free, no login, no ads. Prices are a dated snapshot (currently 2026-11-17), not live prices; the snapshot date is shown on the page.**
 
-**邊間超市最平,一次過睇晒:HKTVmall、百佳、惠康三間價錢對比,免費、免登入。價錢係有日期嘅快照 (而家係 2026-11-14),唔係即日價。**
+**邊間超市最平,一次過睇晒:HKTVmall、百佳、惠康三間價錢對比,免費、免登入。價錢係有日期嘅快照 (而家係 2026-11-17),唔係即日價。**
 
 ## Live demo
 
@@ -27,6 +27,7 @@ from disk too (the snapshot is embedded as a fallback).
 - **Search** in Chinese or English, category filter, sort by saving / price / name
 - **Watchlist** — star items, saved in your browser (localStorage), nothing uploaded
 - **Price history** — every daily run is kept under `history/prices-YYYY-MM-DD.json`
+- **Housing 楼市** — RVD official monthly indices in the same page: private-domestic price index (2026-08: 320.5), rental index (210.3), market yields by class (A 3.5%), CCL (158.61, 2026-11-13), 12-month trend, plus a rent-vs-buy calculator (monthly payment + gross yield from your own inputs). No scraped listings — rental sites block bots, so only official indices are shown, never invented prices. Data: `data/housing.json`, refresh with `scripts/build_housing.py` after each RVD monthly release (next ~2026-11-26)
 
 ## Where the prices come from (honest version)
 
@@ -53,7 +54,7 @@ Caveats, stated plainly on the site too:
 - HKTVmall's price is the price on the snapshot date and often includes a promotion; the
   rival prices are HKTVmall's recorded prices with a record date. If a
   saving looks unusually large, check the store — pack sizes can differ.
-- Only 29 of 66 items currently carry all three stores; the rest show
+- 31 of 66 items currently carry all three stores (2026-11-17 snapshot); the rest show
   HKTVmall plus whichever rivals HKTVmall recorded. Coverage grows as
   HKTVmall records more.
 - Prices change daily. Always verify before ordering. The data date is
@@ -73,12 +74,13 @@ pip install -r scraper/requirements.txt   # requests only
 python3 scraper/scraper.py                # rewrites data/prices.json
 python3 -m unittest discover -s tests     # scraper tests
 node tests/test_frontend.js               # frontend render test
+node tests/test_housing.js                # housing data + calculator test
 python3 -m http.server 8000               # open http://localhost:8000
 ```
 
 Daily refresh is automated by `.github/workflows/daily-scrape.yml`
 (09:00 HKT, commits the new snapshot). The snapshot checked into this repo
-is currently 2026-11-14 — if the workflow has not run since, the page says
+is currently 2026-11-17 — if the workflow has not run since, the page says
 so plainly ("N 日前嘅快照") instead of pretending the prices are today's.
 Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 
@@ -86,8 +88,11 @@ Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 
 ```
 index.html                  static site (pure HTML/CSS/ES5, white bg, iOS 16 safe)
-data/prices.json            current snapshot (generated 2026-11-14, real data)
+data/prices.json            current snapshot (generated 2026-11-17, real data)
 data/fallback.js            same snapshot, embedded for file:// use
+data/housing.json            RVD price/rent indices + yields + CCL (2026-08)
+data/housing-data.js         same housing data, embedded for file:// use
+scripts/build_housing.py     rebuilds housing.json from RVD CSVs
 history/prices-YYYY-MM-DD.json   daily snapshots
 scraper/scraper.py          the scraper (requests only)
 scraper/products.py         the 66-item staple list
@@ -108,7 +113,7 @@ the code is yours to reuse.
 ### 呢個係咩?
 
 香港超市價錢比較:一次過睇 HKTVmall、百佳、惠康三間價,邊間最平即刻知。
-免費、免登入、無廣告。價錢以快照日期為準 (而家係 2026-11-14),唔係即日價。
+免費、免登入、無廣告。價錢以快照日期為準 (而家係 2026-11-17),唔係即日價。
 
 ### 點解有用?
 
@@ -127,7 +132,7 @@ HKTVmall 會記錄同一件貨喺百佳同惠康嘅價錢(`kaPriceList`,附記�
 
 - HKTVmall 價係快照當日價,好多時含推廣;百佳/惠康價係 HKTVmall 記錄價,
   附記錄日期,包裝可能有出入,買之前請核實。
-- 66 樣入面有 29 樣齊三間價,其餘得 HKTVmall 加其中一間。
+- 66 樣入面有 31 樣齊三間價,其餘得 HKTVmall 加其中一間。
 - 價錢每日變,頁面有寫明數據日期。
 
 ### 點用?
@@ -142,3 +147,8 @@ HKTVmall 會記錄同一件貨喺百佳同惠康嘅價錢(`kaPriceList`,附記�
 - **Discount badges** — HKTVmall items on sale show the real % off the original price (from the data's `original_price` field, nothing invented). 有折扣嘅貨會顯示真實減價 %。
 - **Filters** — only items with all 3 store prices, or only discounted items. 新增篩選:齊三間價 / 有折扣。
 - **Cheapest-store tally** — the stats bar now shows how often each store is cheapest (HKTVmall is cheapest on most items in this snapshot — the data says so, honestly). 統計列加咗每間店最平次數。
+
+## What's new — 2026-11-17 housing
+
+- **楼市 Housing section** — same page now carries official housing numbers: RVD monthly price index (320.5, Aug 2026), rental index (210.3), market yields by class, CCL 158.61 (13 Nov 2026), 12-month trend table, and a rent-vs-buy calculator. All figures are published official statistics; nothing is scraped from listing sites (they block bots) and no price is invented.
+- **Supermarket snapshot refreshed to 2026-11-17** — 66 items, 31 with all three store prices (7 up, 3 down vs 2026-11-15).
