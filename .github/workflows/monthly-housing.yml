@@ -1,0 +1,39 @@
+name: Monthly housing refresh
+
+# Rebuilds data/housing.json + data/housing-data.js from the Rating and
+# Valuation Department's official monthly CSVs (public, no key needed).
+# Runs on the 28th at 10:00 HKT — RVD releases the new month around the
+# 26th — and on demand. No secrets, no Muse quota: GitHub's free runners
+# do it, and the page picks the new file up on its own (see syncHousing()
+# in index.html). If a CSV changes shape, build_housing.py fails loudly
+# and nothing is committed.
+on:
+  schedule:
+    - cron: "0 2 28 * * *"   # 10:00 HKT on the 28th
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  housing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download RVD monthly CSVs
+        run: |
+          curl -fsSL -o /tmp/hl-price.csv https://www.rvd.gov.hk/datagovhk/1.4M.csv
+          curl -fsSL -o /tmp/hl-rent.csv https://www.rvd.gov.hk/datagovhk/1.3M.csv
+          curl -fsSL -o /tmp/hl-yield.csv https://www.rvd.gov.hk/datagovhk/5.1M.csv
+      - run: python3 scripts/build_housing.py /tmp/hl-price.csv /tmp/hl-rent.csv /tmp/hl-yield.csv
+      - run: node tests/check_housing_json.js
+      - name: Commit updated housing data
+        run: |
+          git config user.name "hk-price-watch bot"
+          git config user.email "bot@hk-price-watch.local"
+          git add data
+          git diff --cached --quiet || git commit -m "housing: RVD $(python3 -c "import json; print(json.load(open('data/housing.json'))['asOf'])")"
+          git push
