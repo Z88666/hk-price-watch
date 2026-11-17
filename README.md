@@ -27,7 +27,7 @@ from disk too (the snapshot is embedded as a fallback).
 - **Search** in Chinese or English, category filter, sort by saving / price / name
 - **Watchlist** — star items, saved in your browser (localStorage), nothing uploaded
 - **Price history** — every daily run is kept under `history/prices-YYYY-MM-DD.json`
-- **Housing 楼市** — RVD official monthly indices in the same page: private-domestic price index (2026-08: 320.5), rental index (210.3), market yields by class (A 3.5%), CCL (158.61, 2026-11-13), 12-month trend, plus a rent-vs-buy calculator (monthly payment + gross yield from your own inputs). No scraped listings — rental sites block bots, so only official indices are shown, never invented prices. Data: `data/housing.json`, refresh with `scripts/build_housing.py` after each RVD monthly release (next ~2026-11-26)
+- **Housing 楼市** — RVD official monthly indices in the same page: private-domestic price index (2026-09: 320.8), rental index (212.2), market yields by class (A 3.5%), CCL (158.61, 2026-11-13), 12-month trend, plus rent-vs-buy, mortgage and stamp-duty calculators. No scraped listings — rental sites block bots, so only official indices are shown, never invented prices. Data: `data/housing.json`, auto-refreshed monthly by GitHub Actions (`.github/workflows/monthly-housing.yml`, runs 28th each month) — no manual updates needed.
 
 ## Where the prices come from (honest version)
 
@@ -90,7 +90,7 @@ Full instructions: [`docs/DEMO.md`](docs/DEMO.md).
 index.html                  static site (pure HTML/CSS/ES5, white bg, iOS 16 safe)
 data/prices.json            current snapshot (generated 2026-11-17, real data)
 data/fallback.js            same snapshot, embedded for file:// use
-data/housing.json            RVD price/rent indices + yields + CCL (2026-08)
+data/housing.json            RVD price/rent indices + yields + CCL (2026-09)
 data/housing-data.js         same housing data, embedded for file:// use
 scripts/build_housing.py     rebuilds housing.json from RVD CSVs
 history/prices-YYYY-MM-DD.json   daily snapshots
@@ -150,5 +150,5 @@ HKTVmall 會記錄同一件貨喺百佳同惠康嘅價錢(`kaPriceList`,附記�
 
 ## What's new — 2026-11-17 housing
 
-- **楼市 Housing section** — same page now carries official housing numbers: RVD monthly price index (320.5, Aug 2026), rental index (210.3), market yields by class, CCL 158.61 (13 Nov 2026), 12-month trend table, and a rent-vs-buy calculator. All figures are published official statistics; nothing is scraped from listing sites (they block bots) and no price is invented.
+- **楼市 Housing section** — same page now carries official housing numbers: RVD monthly price index (320.8, Sep 2026), rental index (212.2), market yields by class, CCL 158.61 (13 Nov 2026), 12-month trend table, rent-vs-buy, mortgage and stamp-duty calculators. All figures are published official statistics; nothing is scraped from listing sites (they block bots) and no price is invented. Housing data auto-refreshes monthly via GitHub Actions — no manual updates, no Muse quota used.
 - **Supermarket snapshot refreshed to 2026-11-17** — 66 items, 31 with all three store prices (7 up, 3 down vs 2026-11-15).
