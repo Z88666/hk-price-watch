@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>香港超市比價 + 楼市指数 HK Price Watch — HKTVmall / PARKnSHOP / Wellcome</title>
-<meta name="description" content="香港超市價錢比較:HKTVmall、百佳、惠康三間價錢一次過睇,邊間最平即刻知。免費、免登入。價錢以快照日期為準,唔係即時價。另有差饷物业估价署楼价/租金指数及租买计算器。">
+<meta name="description" content="香港超市價錢比較:HKTVmall、百佳、惠康三間價錢一次過睇,邊間最平即刻知。免費、免登入。價錢以快照日期為準,唔係即時價。另有差饷物业估价署楼价/租金指数及租买、按揭、印花税计算器。">
 <style>
 /* Plain CSS only. White background, black text — renders on old browsers
    (iOS 16 Safari included). No frameworks, no webfonts, no trackers. */
@@ -62,7 +62,7 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
 <body>
 <div class="wrap">
   <h1>香港超市比價 <span style="font-size:16px;color:#555">HK Price Watch</span></h1>
-  <p class="sub">HKTVmall、百佳 PARKnSHOP、惠康 Wellcome 三間價錢一次過睇，邊間最平即刻知。免費、免登入、無廣告。價錢以快照日期為準，唔係即日價。下面仲有官方楼市指数（楼价、租金、租金回报）同租买计算器。</p>
+  <p class="sub">HKTVmall、百佳 PARKnSHOP、惠康 Wellcome 三間價錢一次過睇，邊間最平即刻知。免費、免登入、無廣告。價錢以快照日期為準，唔係即日價。下面仲有官方楼市指数（楼价、租金、租金回报）同租买、按揭、印花税计算器，楼市数据每月自动同步官方数字。</p>
 
   <div class="stats" id="stats"></div>
 
@@ -105,7 +105,7 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
     <thead><tr><th>月份</th><th class="price">楼价指数</th><th class="price">按月</th><th class="price">租金指数</th><th class="price">按月</th></tr></thead>
     <tbody id="housingTrend"></tbody>
   </table>
-  <h3>按单位类别（2026-08，暂定）</h3>
+  <h3 id="housingClassHead">按单位类别</h3>
   <table>
     <thead><tr><th>单位类别</th><th class="price">楼价指数</th><th class="price">租金指数</th><th class="price">租金回报</th></tr></thead>
     <tbody id="housingClass"></tbody>
@@ -121,6 +121,42 @@ td.cheapest::after { content: " 最平"; color: #0a7d0a; font-size: 12px; }
     <button id="calcBtn" style="font-size:16px;padding:10px 16px;border-radius:8px;background:#111;color:#fff;border:none;cursor:pointer">计算 Calculate</button>
   </div>
   <div class="note" id="calcOut" style="display:none"></div>
+  <h3>按揭计算器 Mortgage</h3>
+  <p class="meta">输入楼价、首期、年利率、年期，计每月供款、总利息、总还款。年利率请填银行给你的实际利率（可自行更改）。</p>
+  <div class="controls">
+    <label>楼价 HK$ <input type="number" id="mgPrice" value="6000000" min="0" step="10000" style="font-size:16px;padding:10px;border:1px solid #999;border-radius:8px;width:150px"></label>
+    <label>首期 % <input type="number" id="mgDown" value="30" min="0" max="99" step="1" style="font-size:16px;padding:10px;border:1px solid #999;border-radius:8px;width:80px"></label>
+    <label>年利率 % <input type="number" id="mgRate" value="3.5" min="0" step="0.1" style="font-size:16px;padding:10px;border:1px solid #999;border-radius:8px;width:80px"></label>
+    <label>年期 <input type="number" id="mgYears" value="30" min="1" max="30" step="1" style="font-size:16px;padding:10px;border:1px solid #999;border-radius:8px;width:80px"></label>
+    <button id="mgBtn" style="font-size:16px;padding:10px 16px;border-radius:8px;background:#111;color:#fff;border:none;cursor:pointer">计算 Calculate</button>
+  </div>
+  <div class="note" id="mgOut" style="display:none"></div>
+  <h3>印花税计算器 Stamp Duty</h3>
+  <p class="meta">按税务局从价印花税（AVD）第二标准税率计，2026 年 2 月 26 日起生效。特别印花税、买家印花税、新住宅印花税已于 2024 年 2 月 28 日取消，住宅交易一般只涉 AVD。</p>
+  <div class="controls">
+    <label>楼价 / 市值 HK$ <input type="number" id="sdPrice" value="6000000" min="0" step="10000" style="font-size:16px;padding:10px;border:1px solid #999;border-radius:8px;width:150px"></label>
+    <button id="sdBtn" style="font-size:16px;padding:10px 16px;border-radius:8px;background:#111;color:#fff;border:none;cursor:pointer">计算 Calculate</button>
+  </div>
+  <div class="note" id="sdOut" style="display:none"></div>
+  <h3>从价印花税率表（第二标准税率）</h3>
+  <table>
+    <thead><tr><th>楼价</th><th class="price">印花税</th></tr></thead>
+    <tbody>
+    <tr><td>$4,000,000 或以下</td><td class="price">$100</td></tr>
+    <tr><td>$4,000,001 – $4,323,780</td><td class="price">$100 + 超出 $4,000,000 部分 × 20%</td></tr>
+    <tr><td>$4,323,781 – $4,500,000</td><td class="price">1.5%</td></tr>
+    <tr><td>$4,500,001 – $4,935,480</td><td class="price">$67,500 + 超出 $4,500,000 部分 × 10%</td></tr>
+    <tr><td>$4,935,481 – $6,000,000</td><td class="price">2.25%</td></tr>
+    <tr><td>$6,000,001 – $6,642,860</td><td class="price">$135,000 + 超出 $6,000,000 部分 × 10%</td></tr>
+    <tr><td>$6,642,861 – $9,000,000</td><td class="price">3%</td></tr>
+    <tr><td>$9,000,001 – $10,080,000</td><td class="price">$270,000 + 超出 $9,000,000 部分 × 10%</td></tr>
+    <tr><td>$10,080,001 – $20,000,000</td><td class="price">3.75%</td></tr>
+    <tr><td>$20,000,001 – $21,739,120</td><td class="price">$750,000 + 超出 $20,000,000 部分 × 10%</td></tr>
+    <tr><td>$21,739,121 或以上</td><td class="price">4.25%</td></tr>
+    <tr><td>逾 $100,000,000</td><td class="price">6.5%（顶格税率，过渡安排以税局为准）</td></tr>
+    </tbody>
+  </table>
+  <p class="meta">税按楼价与市值较高者计；不足 $1 之数进为 $1。资料来源：税务局《印花税收费》（2026 年 5 月修订）。数字只供参考，实际税款以税局为准。</p>
   <div class="note" id="housingNote"></div>
 
   <div class="note" id="sourceNote"></div>
@@ -488,15 +524,18 @@ function fmtSignedPct(v) {
   return (v > 0 ? "+" : "") + v + "%";
 }
 var CLASS_LABELS = { A: "A级 (<40㎡)", B: "B级 (40-69.9㎡)", C: "C级 (70-99.9㎡)", D: "D级 (100-159.9㎡)", E: "E级 (>=160㎡)" };
+var housingBound = false;
 function renderHousing() {
   if (typeof HOUSING_DATA === "undefined") return;
   var H = HOUSING_DATA, p = H.priceIndex, r = H.rentalIndex, y = H.yields, c = H.cci;
   var stat = "";
-  stat += '<div class="stat">楼价指数 (2026-08, 暂定): <b>' + p.latest.value + '</b> 按月 ' + fmtSignedPct(p.latest.momPct) + ' · 按年 ' + fmtSignedPct(p.latest.yoyPct) + '</div>';
-  stat += '<div class="stat">租金指数 (2026-08, 暂定): <b>' + r.latest.value + '</b> 按月 ' + fmtSignedPct(r.latest.momPct) + ' · 按年 ' + fmtSignedPct(r.latest.yoyPct) + '</div>';
+  stat += '<div class="stat">楼价指数 (' + H.asOf + ', 暂定): <b>' + p.latest.value + '</b> 按月 ' + fmtSignedPct(p.latest.momPct) + ' · 按年 ' + fmtSignedPct(p.latest.yoyPct) + '</div>';
+  stat += '<div class="stat">租金指数 (' + H.asOf + ', 暂定): <b>' + r.latest.value + '</b> 按月 ' + fmtSignedPct(r.latest.momPct) + ' · 按年 ' + fmtSignedPct(r.latest.yoyPct) + '</div>';
   stat += '<div class="stat">中原 CCL (' + c.date + '): <b>' + c.value + '</b> 按周 ' + fmtSignedPct(c.wowPct) + ' · 连跌 ' + c.weeksDown + ' 周</div>';
-  stat += '<div class="stat">租金回报 (2026-08): A级 <b>' + y.latest.A.value + '%</b> · B级 ' + y.latest.B.value + '% · C级 ' + y.latest.C.value + '%</div>';
+  stat += '<div class="stat">租金回报 (' + H.asOf + '): A级 <b>' + y.latest.A.value + '%</b> · B级 ' + y.latest.B.value + '% · C级 ' + y.latest.C.value + '%</div>';
   document.getElementById("housingStats").innerHTML = stat;
+  var chh = document.getElementById("housingClassHead");
+  if (chh) chh.textContent = "按单位类别（" + H.asOf + "，暂定）";
   var months = p.monthly.all.slice(-12), rm = r.monthly.all.slice(-12), th = "", i;
   for (i = 0; i < months.length; i++) {
     var pm = i ? pctChange(months[i][1], months[i - 1][1]) : null;
@@ -513,6 +552,13 @@ function renderHousing() {
   document.getElementById("housingNote").innerHTML = esc(H.notes) + " 楼价/租金数据截至 " + esc(H.asOf) + "，下次估价署更新约 " + esc(H.nextRvdUpdate) + "。数据来源: <a href=\"" + esc(H.sources.rvd) + "\" target=\"_blank\" rel=\"noopener\">差饷物业估价署《物业市场统计资料》</a> · <a href=\"" + esc(H.sources.datagovhk) + "\" target=\"_blank\" rel=\"noopener\">data.gov.hk</a> · CCL 来源: <a href=\"" + esc(H.sources.cci) + "\" target=\"_blank\" rel=\"noopener\">中原地产研究部 (am730 报道)</a>。指数只供参考，唔构成买楼建议。";
   var btn = document.getElementById("calcBtn");
   if (btn) btn.addEventListener("click", calcHousing);
+  if (!housingBound) {
+    housingBound = true;
+    var mg = document.getElementById("mgBtn");
+    if (mg) mg.addEventListener("click", calcMortgage);
+    var sd = document.getElementById("sdBtn");
+    if (sd) sd.addEventListener("click", calcStampDuty);
+  }
 }
 function calcHousing() {
   function num(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; }
@@ -529,8 +575,81 @@ function calcHousing() {
   var gy = grossYield(price, rent);
   var diff = pay - rent;
   var ref = (typeof HOUSING_DATA !== "undefined") ? HOUSING_DATA.yields.latest : null;
-  var refTxt = ref ? "官方租金回报参考 (2026-08)：A级 " + ref.A.value + "% · B级 " + ref.B.value + "% · C级 " + ref.C.value + "% · D级 " + ref.D.value + "% · E级 " + ref.E.value + "%。" : "";
+  var asOfTxt = (typeof HOUSING_DATA !== "undefined") ? HOUSING_DATA.asOf : "";
+  var refTxt = ref ? "官方租金回报参考 (" + asOfTxt + ")：A级 " + ref.A.value + "% · B级 " + ref.B.value + "% · C级 " + ref.C.value + "% · D级 " + ref.D.value + "% · E级 " + ref.E.value + "%。" : "";
   out.innerHTML = "首期 " + fmtHK(dp) + " · 贷款 " + fmtHK(loan) + "<br>每月供款 <b>" + fmtHK(pay) + "</b>（" + years + " 年，年利率 " + rate + "%）<br>每月租金 " + fmtHK(rent) + " → 供款比租金" + (diff >= 0 ? "多 " : "少 ") + "<b>" + fmtHK(Math.abs(diff)) + "</b><br>年租金回报 <b>" + gy.toFixed(2) + "%</b>（年租 ÷ 楼价，未扣管理费、差饷、税项及空置）<br><span class=\"meta\">" + refTxt + "供款未计按揭保险及杂费；数字只供参考。</span>";
+}
+
+/* Mortgage breakdown: monthly payment, total interest, total paid. Pure.
+   Returns null on bad input. Rate is whatever the user typed. */
+function mortgageBreakdown(loan, annualRatePct, years) {
+  if (loan == null || loan <= 0 || years == null || years <= 0) return null;
+  var n = years * 12, r = (annualRatePct || 0) / 100 / 12;
+  var monthly = r ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
+  var totalPaid = monthly * n;
+  return { monthly: monthly, totalInterest: totalPaid - loan, totalPaid: totalPaid };
+}
+/* AVD Scale 2 (IRD, instruments executed on/after 26 Feb 2026). Pure.
+   Returns {duty, rate} or null on bad input. Duty rounded up to $1. */
+function stampDutyAvd(price) {
+  if (price == null || isNaN(price) || price <= 0) return null;
+  var v = Math.ceil(price), duty, rate;
+  if (v <= 4000000) { duty = 100; rate = "HK$100"; }
+  else if (v <= 4323780) { duty = Math.ceil(100 + (v - 4000000) * 0.2); rate = "$100 + 20% 超出 $4,000,000 部分"; }
+  else if (v <= 4500000) { duty = Math.ceil(v * 0.015); rate = "1.5%"; }
+  else if (v <= 4935480) { duty = Math.ceil(67500 + (v - 4500000) * 0.1); rate = "$67,500 + 10% 超出 $4,500,000 部分"; }
+  else if (v <= 6000000) { duty = Math.ceil(v * 0.0225); rate = "2.25%"; }
+  else if (v <= 6642860) { duty = Math.ceil(135000 + (v - 6000000) * 0.1); rate = "$135,000 + 10% 超出 $6,000,000 部分"; }
+  else if (v <= 9000000) { duty = Math.ceil(v * 0.03); rate = "3%"; }
+  else if (v <= 10080000) { duty = Math.ceil(270000 + (v - 9000000) * 0.1); rate = "$270,000 + 10% 超出 $9,000,000 部分"; }
+  else if (v <= 20000000) { duty = Math.ceil(v * 0.0375); rate = "3.75%"; }
+  else if (v <= 21739120) { duty = Math.ceil(750000 + (v - 20000000) * 0.1); rate = "$750,000 + 10% 超出 $20,000,000 部分"; }
+  else if (v <= 100000000) { duty = Math.ceil(v * 0.0425); rate = "4.25%"; }
+  else { duty = Math.ceil(v * 0.065); rate = "6.5%（逾 $1 亿顶格税率，过渡安排以税局为准）"; }
+  return { duty: duty, rate: rate };
+}
+function calcMortgage() {
+  function num(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; }
+  var price = num("mgPrice"), down = num("mgDown"), rate = num("mgRate"), years = num("mgYears");
+  var out = document.getElementById("mgOut");
+  out.style.display = "block";
+  if (price == null || price <= 0 || down == null || down < 0 || down >= 100 || rate == null || rate < 0 || years == null || years <= 0) {
+    out.innerHTML = "请填齐数字：楼价要大于 0，首期 0–99%，年期大于 0。";
+    return;
+  }
+  var loan = price * (1 - down / 100);
+  var b = mortgageBreakdown(loan, rate, years);
+  out.innerHTML = "首期 " + fmtHK(price * down / 100) + " · 贷款 " + fmtHK(loan) +
+    "<br>每月供款 <b>" + fmtHK(b.monthly) + "</b>（" + years + " 年，年利率 " + rate + "%）" +
+    "<br>总利息 <b>" + fmtHK(b.totalInterest) + "</b> · 总还款 <b>" + fmtHK(b.totalPaid) + "</b>" +
+    '<br><span class="meta">年利率请填银行给你的实际利率；供款未计按揭保险及杂费；数字只供参考。</span>';
+}
+function calcStampDuty() {
+  var v = parseFloat(document.getElementById("sdPrice").value);
+  var out = document.getElementById("sdOut");
+  out.style.display = "block";
+  var r = stampDutyAvd(v);
+  if (!r) { out.innerHTML = "请输入大于 0 的楼价。"; return; }
+  out.innerHTML = "楼价 " + fmtHK(Math.ceil(v)) + " · 适用税率 <b>" + r.rate + "</b><br>应缴从价印花税 <b>" + fmtHK(r.duty) + "</b>" +
+    '<br><span class="meta">按税务局从价印花税第二标准税率计（2026 年 2 月 26 日起生效）；税按楼价与市值较高者计，不足 $1 之数进为 $1；实际税款以税局为准。</span>';
+}
+/* Sync to the newest committed housing.json (same origin, no CORS issue).
+   GitHub Actions refreshes data/housing.json monthly; if it is newer than
+   the bundled HOUSING_DATA, use it and re-render. Any failure keeps the
+   bundled data, so the page never breaks. */
+function syncHousing() {
+  if (!window.fetch || typeof HOUSING_DATA === "undefined") return;
+  fetch("data/housing.json").then(function (r) {
+    if (!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(function (fresh) {
+    if (fresh && fresh.asOf && fresh.asOf > HOUSING_DATA.asOf) {
+      HOUSING_DATA = fresh;
+      renderHousing();
+      var n = document.getElementById("housingNote");
+      if (n) n.innerHTML += " <b>已即时同步至 " + fresh.asOf + "。</b>";
+    }
+  }).catch(function () {});
 }
 
 function start(data) {
@@ -556,7 +675,7 @@ if (window.fetch) {
   start(window.HK_PRICE_FALLBACK);
 }
 /* Housing section renders from the embedded HOUSING_DATA (data/housing-data.js). */
-if (typeof HOUSING_DATA !== "undefined") { renderHousing(); }
+if (typeof HOUSING_DATA !== "undefined") { renderHousing(); syncHousing(); }
 </script>
 </body>
 </html>
