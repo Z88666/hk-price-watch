@@ -9,7 +9,7 @@ name: Monthly housing refresh
 # and nothing is committed.
 on:
   schedule:
-    - cron: "0 2 28 * * *"   # 10:00 HKT on the 28th
+    - cron: "0 2 28 * *"   # 10:00 HKT on the 28th
   workflow_dispatch:
 
 permissions:
