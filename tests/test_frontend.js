@@ -216,7 +216,9 @@ try {
   check("cheapest tally sums to item count",
     tally.hktvmall + tally.parknshop + tally.wellcome === snap.items.length,
     JSON.stringify(tally));
-  check("cheapest tally HKTVmall is most often cheapest", tally.hktvmall > 60);
+  check("cheapest tally HKTVmall is most often cheapest",
+    tally.hktvmall > tally.parknshop && tally.hktvmall > tally.wellcome,
+    JSON.stringify(tally));
   /* --- 2nd polish: corrupt / missing fields must not crash sorting --- */
   var corrupt = [
     { id: "a", name_en: "A", prices: {}, cheapest: "hktvmall" },
